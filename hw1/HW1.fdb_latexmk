@@ -1,5 +1,5 @@
 # Fdb version 3
-["pdflatex"] 1495569653 "HW1.tex" "HW1.pdf" "HW1" 1495569658
+["pdflatex"] 1495570194 "HW1.tex" "HW1.pdf" "HW1" 1495570194
   "../def.tex" 1495569502 4296 ae29a9460c0f602c1a52aafb9b6c58d2 ""
   "/etc/texmf/web2c/texmf.cnf" 1487906957 475 c0e671620eb5563b2130f56340a5fde8 ""
   "/usr/share/texlive/texmf-dist/fonts/map/fontname/texfonts.map" 1272929888 3287 e6b82fe08f5336d4d5ebc73fb1152e87 ""
@@ -67,12 +67,12 @@
   "/usr/share/texmf/web2c/texmf.cnf" 1471618383 31348 3c11c993a1d7e4662292855f9f7c8e1b ""
   "/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map" 1487911518 1938010 a757a460f2fd82210c4d6c8c2cbaedc2 ""
   "/var/lib/texmf/web2c/pdftex/pdflatex.fmt" 1487911627 3868954 34ef91b69884bcf1d337a66d3d15a9a0 ""
-  "HW1.aux" 1495569653 323 1da0737a14c6fd1598934307b837087e ""
-  "HW1.tex" 1495569657 6506 4df218ce6b46259b8999fd9c3d5b7f5e ""
+  "HW1.aux" 1495570194 323 1da0737a14c6fd1598934307b837087e ""
+  "HW1.tex" 1495570193 5867 09557b6dd004228c5f8da978141a5453 ""
   "abs_error.PNG" 1495583062 22044 0d07e795daa406ea0b93e70722c35af4 ""
   "tf.png" 1495582912 23974 3c3e342eb19b2fbd5c5d91c263a3099e ""
   (generated)
-  "HW1.pdfsync"
-  "HW1.aux"
   "HW1.log"
+  "HW1.aux"
+  "HW1.pdfsync"
   "HW1.pdf"
