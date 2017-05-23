@@ -9,7 +9,7 @@
 
 \benum
 
-% Problem 1
+% Problem 1 ----------------------------------------------------------------------------------------------------
 \item Let $f(x) = e^{x}\cos {2x}.$
 \benum
 \item Find $T_4(x),$ the degree-4 Taylor polynomial of $f(x)$ centered at $x=0.$ \\
@@ -108,9 +108,31 @@ f(x) - T_4(x) = R_4(x).
 
 	$$\approx 0.228$$
 
-\item Using Matlab, plot $f(x)$ and $T_4(x)$ on the same graph for $x \in [-\pi/4,\pi/4].$
-On a second graph plot the absolute error $|f(x)-T_4(x)|,$ again for $x \in [-\pi/4,\pi/4].$  Check if the error does indeed obey the bound you found in part (c) above.
+\item Using Matlab, plot $fx)$ and $T_4x)$ on the same graph for $x \in [-\pi/4,\pi/4].$
+On a second graph plot the absolute error $|f(x)-T_4(x)|,$ again for $x \in [-\pi/4,\pi/4].$  Check if the error does indeed obey the bound you found in part (c) above. \\
+
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=4in, height=3.75in]{tf.png}
+	\caption{Taylor expansion and initial function}
+	\label{fig:graph1}
+\end{figure}
+
+Figure \ref{fig:graph1} shows the actual function compared to its $4^{th}$ degree Taylor expansion over the range
+$x \in [\frac{-\pi}{4} , \frac{\pi}{4} ]$ \\
+
+\begin{figure}[!h]
+	\centering
+	\includegraphics[width=4in, height=3.75in]{abs_error.PNG}
+	\caption{Difference between the Taylor expansion and the initial function}
+	\label{fig:graph2}
+\end{figure}
+
+As shown by figure \ref{fig:graph2}, the maximum error between the two functions on this domain is 0.139.
+This agrees with the bound produced by the remainder, which was 0.228.
 \eenum
+
+\newpage
 
 % Problem 2
 \item (Pencil-and-paper)
