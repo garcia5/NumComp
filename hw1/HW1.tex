@@ -79,8 +79,8 @@ f(x) - T_4(x) = R_4(x).
 \item Suppose that $f(x)$ is approximated by $T_4(x)$ in the interval $x \in [-\pi/4,\pi/4].$  Find a bound on the absolute error of the approximation. \\
 
 	We know the remainder, $R_4(x)$ from part (c). Given a closed interval, we can find the maximum error by
-	finding the maximum of $f^{(5)}(x)$ in this interval. To do this, we must find its derivative.
-	Its zeroes will show all maxima and minima.
+	finding the maximum remainder in this interval. To do this, we must find its derivative,
+	whose zeroes will show all maxima and minima.
 
 	$f^{(6)}(x) = e^x(-82sin(2x)+76cos(2x)) + e^x(41cos(2x) + 38sin(2x)) = e^x(117cos(2x) - 44sin(2x))$ \\
 
@@ -96,14 +96,17 @@ f(x) - T_4(x) = R_4(x).
 
 	Our candidate points are then $\{-\frac{\pi}{4}, 0.606, \frac{\pi}{4} \}$ \\
 
-	$f(-\frac{\pi}{4}) = e^{\frac{-\pi}{4}}cos(-\frac{\pi}{2}) = 0 = f(\frac{\pi}{4})$
+	$f^{(5)}(\frac{\pi}{4}) = 38*e^{\frac{\pi}{4}} \approx 83.3$
 
-	$f(0.606) = e^{0.606}cos(2*0.606) \approx 0.645$ \\
+	$f^{(5)}(-\frac{\pi}{4}) = -38*e^{\frac{\pi}{4}}$
 
-	As $f(0.606)$ is clearly the max, this is what we use for determining the error bound. \\
+	$f^{(5)}(0.606) = e^{0.606}(41cos(2*0.606)+38sin(2*0.606)) \approx 91.6$ \\
 
-	$f^{(5)}(0.606) \approx $
+	As $f^{(5)}(0.606)$ is clearly the max, this is what we use for determining the error bound. \\
 
+	$$max(R_4(x)) = \frac{(\frac{\pi}{4})^5}{5!}*91.6$$
+
+	$$\approx 0.228$$
 
 \item Using Matlab, plot $f(x)$ and $T_4(x)$ on the same graph for $x \in [-\pi/4,\pi/4].$
 On a second graph plot the absolute error $|f(x)-T_4(x)|,$ again for $x \in [-\pi/4,\pi/4].$  Check if the error does indeed obey the bound you found in part (c) above.
