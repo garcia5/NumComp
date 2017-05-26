@@ -119,7 +119,6 @@ agrees with the upper bound calculated in part (c).
 	\label{fig:graph1}
 \end{figure}
 
-
 \begin{figure}[!h]
 	\centering
 	\includegraphics[width=4in, height=3.5in]{abs_error.PNG}
@@ -148,9 +147,65 @@ agrees with the upper bound calculated in part (c).
 	$b_{10} = 2 + z_{10} = 2 + \frac{6}{7} = \frac{18}{7} = 2.\overline{857142}$
 
 % Problem 3
-\item (Pencil-and-paper)
-Express $x=6.7$ as an IEEE single-precision float $\text{fl}(x)$ using the round-to-nearest rule.  Compute the relative error $d=|x-fl(x)|/|x|$ exactly as a base-10 number, and show that $d$ satisfies $d \le (1/2)\e_{mach}.$
+\item
 
+
+	$6.7_{10}$
+
+	$6_{10} = 110_2$
+
+	\begin{tabular}{ll}
+
+		$\frac{14}{10} = d_1 + \frac{d_2}{2} + \cdots$ & $ d_1 = 1$ \\
+
+		$\frac{4}{5} = d_2 + \frac{d_3}{2} + \cdots$ & $d_2 = 0$ \\
+
+		$\frac{8}{5} = d_3 + \frac{d_4}{2} + \cdots$ & $d_3 = 1$ \\
+
+		$\frac{6}{5} = d_4 + \frac{d_5}{2} + \cdots$ & $d_4 = 1$ \\
+
+		$\frac{2}{5} = d_5 + \frac{d_6}{2} + \cdots$ & $d_5 = 0$ \\
+
+		$\frac{4}{5} = d_6 + \frac{d_7}{2} + \cdots$ & $d_6 = 0$ \\
+
+	\end{tabular} \\
+
+	The value generating $d_6$ is the same as the one generating $d_2$, and thus we are in a loop generating
+	the repeating pattern 0110.
+
+	$6.7_{10} = 110.1\overline{0110}_2 = 1.101\overline{0110}*2^2$
+
+	The IEEE representation of this number designates one signed bit (in this case it is 0, as 6.7>0), 8 for the exponent (in this case 2),
+	and 23 for the mantissa (in this case $101\overline{0110}$. The $23^{rd}$ digit of the mantissa is 0, so the number is truncated when
+	stored.
+
+	The exponent that is stored is the real exponent + a bias, which in this case is 127.
+
+	$fl(6.7)$ is stored in the machine as
+
+	\begin{center}
+	\begin{tabular}{c | c | c}
+
+		$0$ & $10000001$ & $10101100110011001100110$ \\
+
+		sign & exponent + bias & mantissa \\
+
+	\end{tabular} \\
+\end{center}
+
+	Converting the stored number back to decimal gives us $2^{129-127} * q$
+
+	$q = 1 + 2^{-1} + 2^{-3} + 2^{-5} + 2^{-6} + 2^{-9} + 2^{-10} + 2^{-13} + 2^{-14} + 2^{-17} + 2^{-18}+2^{-21} + 2^{-22} \approx 1.675$
+
+	$fl(6.7) = 2^2 * q  \approx (6.7+1.90735*10^{-7})$
+
+	The relative error $d = \frac{6.7-fl(6.7)}{6.7} = 2.84679*10^{-8}$
+
+	$\epsilon_{mach}$ for a 32 bit float is $\frac{1}{2^{23}} \approx 1.19*10^{-7}$
+
+	$\frac{1}{2} * \epsilon_{mach} \approx 5.96 * 10^{-8}$
+
+	More importantly, $$\frac{1}{2} * \epsilon_{mach} \leq d$$ \\
 
 % Problem 4
 \item (Pencil-and-paper and MATLAB)
