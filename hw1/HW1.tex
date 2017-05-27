@@ -191,7 +191,7 @@ agrees with the upper bound calculated in part (c).
 		sign & exponent + bias & mantissa \\
 
 	\end{tabular} \\
-\end{center}
+	\end{center}
 
 	Converting the stored number back to decimal gives us $2^{129-127} * q$
 
@@ -205,11 +205,94 @@ agrees with the upper bound calculated in part (c).
 
 	$\frac{1}{2} * \epsilon_{mach} \approx 5.96 * 10^{-8}$
 
-	More importantly, $$\frac{1}{2} * \epsilon_{mach} \leq d$$ \\
+	Crucially, $$\frac{1}{2} * \epsilon_{mach} \leq d$$ \\
 
 % Problem 4
-\item (Pencil-and-paper and MATLAB)
-Holmes 1.5(a).
+\item Holmes 1.5
+
+\benum
+
+	\item According to the IEEE double precision standard, $16_{10}$ is stored as
+
+	$1*2^{5} =$
+
+	\begin{center}
+	\begin{tabular}{c | c | c}
+
+		$0$ & $10000000100$ & $0\cdots0$ \\
+
+		sign & exponent + bias of 1023 & 52 bit mantissa \\
+
+	\end{tabular} \\
+	\end{center}
+
+	If we let $d_n$ represent the $n^{th}$ digit in the mantissa, then the last digit stored in the machine is $d_{52}=0$. By using
+	the round-to-nearest rule, if $d_{53}$ is a 1, we increment $d_{52}$ by one, then chop. This, however, would change the value of the
+	stored number. If $d_{53}$ is 0, however, the number is simply chopped after $d_{52}$ with no modifications. In other words, if
+	$d_1 d_2 \cdots d_{52} d_{53} ==  0$, then $d_{54} d_{55} \cdots d_{\infty}$ can take any value they like. More importantly, the
+	upper bound of this value is when $d_{54} = d_{55} = \cdots = d_{\infty} = 1$
+
+	$$d_{54} d_{55} \cdots d_{\infty} = \sum_{i=54}^{\infty}2^{-i} = \frac{1}{9007199254740992} \approx 1.11*10^-16$$
+	This makes the upper bound of 16 $R=16+\frac{1}{9007199254740992} \approx 16.000000000000000111$ \\
+
+	The lower bound of 16 can be done by finding the lowest value at which $15.xxx$ rounds up to 16. In order to round up at all using
+	the round-to-nearest rule, we know that $d_{53}$ of $15.xxx$ must be a 1. This will cause $d_{52}$ to increase by 1, and the number
+	will then be chopped. In order for the entire sequence $d_1 d_2 \cdots d_{52}$ to go to zeros, they must initially all be 1, and the
+	overflow will convert $15.xxx$ into $16.000\cdots$, as well as increase the exponent.
+	This value would therefore be stored as \\
+
+	\begin{center}
+	\begin{tabular}{c | c | c}
+
+		$0$ & $10000000010$ & $1\cdots1$ \\
+
+		sign & exponent + bias of 1023 & 52 bit mantissa \\
+
+	\end{tabular} \\
+	\end{center}
+
+	In this case, the values of $d_{54} d_{55}
+	\cdots d_{\infty}$ are arbitrary, and their lower bound would be $d_{54} = d_{55} = \cdots = d_{\infty} = 0$. So, the lowest value we
+	can take is
+	$$L=15+\sum_{i=1}^{53}2^i = \frac{144115188075855871}{9007199284740992} \approx 15.99999999999999989$$
+
+	\item The same process can be used to find the upper and lower bounds of 50, but is slightly altered because of the IEEE
+	representation.
+
+	The upper bound is found the exact same way.
+	$$R = 50 + \sum_{i=54}^{\infty}2^{-i} = \frac{450359962737049601}{9007199254740992} \approx 50.000000000000000111$$
+
+	However, the lower bound is slightly altered, due to the binary form of 50.
+
+	$50 = 110010 = 1.1001*2^5$ \\
+
+	\begin{center}
+	\begin{tabular}{c | c | c}
+
+		$0$ & $10000000100$ & $10010\cdots0$ \\
+
+		sign & exponent + bias of 1023 & 52 bit mantissa \\
+
+	\end{tabular} \\
+	\end{center}
+
+	Here, the lower bound would be $49.xxx$, where all decimal places in the binary form are 1, through the same logic as part(a). \\
+
+	\begin{center}
+	\begin{tabular}{c | c | c}
+
+		$0$ & $10000000100$ & $100010\cdots0$ \\
+
+		sign & exponent + bias of 1023 & 52 bit mantissa \\
+
+	\end{tabular} \\
+	\end{center}
+
+	Only the values of $d_6$ through $d_{52}$ can be set to 1, as any other modifications would not represent the number $49.xxx$.
+	Because of this, the lower bound is
+	$$L = 49 + \sum_{i = 1}^{46}2^{-i} = \frac{3518437208883199}{70368744177664} \approx 49.999999999999985$$
+
+\eenum
 
 % Problem 5
 \item (Pencil-and-paper and MATLAB)
