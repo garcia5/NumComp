@@ -281,7 +281,7 @@ agrees with the upper bound calculated in part (c).
 	\begin{center}
 	\begin{tabular}{c | c | c}
 
-		$0$ & $10000000100$ & $100010\cdots0$ \\
+		$0$ & $10000000100$ & $100011\cdots1$ \\
 
 		sign & exponent + bias of 1023 & 52 bit mantissa \\
 
@@ -295,12 +295,29 @@ agrees with the upper bound calculated in part (c).
 \eenum
 
 % Problem 5
-\item (Pencil-and-paper and MATLAB)
-Holmes 1.12.
+\item
+
+	\begin{figure}[h!]
+		\centering
+		\includegraphics[width=4in, height=3.5in]{holmes1_12.png}
+		\caption{Graph of $\frac{1-cos(x)}{x^2} $}
+		\label{fig:graph333}
+	\end{figure}
+
+	It is known that $cos(0) = 1$, so as $x \rightarrow 0^+$, the numerator of this function becomes extremely small. When the machine
+	subtracts these two quantities, there is a point at which catastrophic collision begins, which introduces significant error. When the
+	number of ones in the binary form of $cos(x)$ is greater than 52 (the maximum number of digits in an IEEE double precision number),
+	the result will dip below the underflow limit and is seen by the machine as zero.
+	$$cos(10^{-8}) \approx 0.9999999999999999_{10} \approx 0.111\cdots101_2$$
+	At $x=10^{-8}$, there are 54 leading ones in the binary form of $cos(x)$, so the machine computes the numerator as zero. The
+	denominator, however, can still be accurately computed as $x^2$, so the result is simply 0.
+	At slightly
+	larger values of x ($x=10^{-7}$), there are less than 52 ones, so the machine can still do meaningful subtraction, albeit with minimal
+	significance in the result.
 
 % Problem 6
 \item
-(Pencil-and-paper, adapted from Holmes Problem 1.16.)  Assume single-precision IEEE arithmetic. Assume that the round-to-nearest rule is used with one modification: if there is a tie then the smaller value is picked (this rule for ties is used to make the problem easier).
+Assume single-precision IEEE arithmetic. Assume that the round-to-nearest rule is used with one modification: if there is a tie then the smaller value is picked (this rule for ties is used to make the problem easier).
 \benum
 \item For what real numbers $x$ will the computer claim that the inequalities $1 < x < 2$ hold?
 \item For what real numbers $x$ will the computer claim $x = 4?$
@@ -311,7 +328,9 @@ $x^2-2=0.$   Why is this not possible? Also, suppose $x^*_L$ and $x^*_R$ are the
 % Problem 7
 \item
 \benum
-\item A problem is ill-conditioned if its solution is highly sensitive to small changes in the input data.  True or False?
+\item A problem is ill-conditioned if its solution is highly sensitive to small changes in the input data.  True or False? \\
+	True. An ill-conditioned problem will grow a slight error in input data to a large error in later stages
+
 \item Using higher-precision arithmetic will make an ill-conditioned problem better conditioned.  True or False?
 \item  If two real numbers are exactly representable as floating-point numbers on a finite-precision machine, then so is their product.  True or False?
 \item  Consider the sum

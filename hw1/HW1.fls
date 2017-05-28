@@ -107,6 +107,9 @@ INPUT ./tf.png
 INPUT abs_error.PNG
 INPUT ./abs_error.PNG
 INPUT ./abs_error.PNG
+INPUT holmes1_12.png
+INPUT ./holmes1_12.png
+INPUT ./holmes1_12.png
 INPUT HW1.aux
 INPUT /usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb
 INPUT /usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb
