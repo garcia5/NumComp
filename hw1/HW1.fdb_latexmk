@@ -1,5 +1,5 @@
 # Fdb version 3
-["pdflatex"] 1496078223 "HW1.tex" "HW1.pdf" "HW1" 1496078223
+["pdflatex"] 1496097533 "HW1.tex" "HW1.pdf" "HW1" 1496097534
   "../def.tex" 1495569502 4296 ae29a9460c0f602c1a52aafb9b6c58d2 ""
   "/etc/texmf/web2c/texmf.cnf" 1487906957 475 c0e671620eb5563b2130f56340a5fde8 ""
   "/usr/share/texlive/texmf-dist/fonts/map/fontname/texfonts.map" 1272929888 3287 e6b82fe08f5336d4d5ebc73fb1152e87 ""
@@ -67,13 +67,16 @@
   "/usr/share/texmf/web2c/texmf.cnf" 1471618383 31348 3c11c993a1d7e4662292855f9f7c8e1b ""
   "/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map" 1487911518 1938010 a757a460f2fd82210c4d6c8c2cbaedc2 ""
   "/var/lib/texmf/web2c/pdftex/pdflatex.fmt" 1487911627 3868954 34ef91b69884bcf1d337a66d3d15a9a0 ""
-  "HW1.aux" 1496078223 466 9ebcc1e8ec658c98f32e9d3d5110a4d0 ""
-  "HW1.tex" 1496078222 14952 4339daa67cd18e08a8a6ee37e6dbf278 ""
+  "HW1.aux" 1496097534 862 c3e232d4dcc7dd2d7ea4219f196d3010 ""
+  "HW1.tex" 1496097533 16627 bf92562c461075b1f0b759d4706736d2 ""
   "abs_error.PNG" 1495583062 22044 0d07e795daa406ea0b93e70722c35af4 ""
   "holmes1_12.png" 1495985666 13328 8ef46414f90568288124351651211ce7 ""
+  "script1_1.PNG" 1496111424 53401 8b3f5d8e69ac97cc397d86e95151fcba ""
+  "script1_2.PNG" 1496111436 62948 7eb5402a6eefc95739467015bb86c031 ""
+  "script5.PNG" 1496111466 20871 3ec5020e87ecd3c6d4dcc540c347f1dd ""
   "tf.png" 1495582912 23974 3c3e342eb19b2fbd5c5d91c263a3099e ""
   (generated)
-  "HW1.log"
-  "HW1.aux"
   "HW1.pdfsync"
+  "HW1.aux"
+  "HW1.log"
   "HW1.pdf"

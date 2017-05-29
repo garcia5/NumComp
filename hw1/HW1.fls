@@ -110,6 +110,15 @@ INPUT ./abs_error.PNG
 INPUT holmes1_12.png
 INPUT ./holmes1_12.png
 INPUT ./holmes1_12.png
+INPUT script1_1.PNG
+INPUT ./script1_1.PNG
+INPUT ./script1_1.PNG
+INPUT script1_2.PNG
+INPUT ./script1_2.PNG
+INPUT ./script1_2.PNG
+INPUT script5.PNG
+INPUT ./script5.PNG
+INPUT ./script5.PNG
 INPUT HW1.aux
 INPUT /usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb
 INPUT /usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb
