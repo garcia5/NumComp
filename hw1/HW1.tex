@@ -319,20 +319,72 @@ agrees with the upper bound calculated in part (c).
 \item
 Assume single-precision IEEE arithmetic. Assume that the round-to-nearest rule is used with one modification: if there is a tie then the smaller value is picked (this rule for ties is used to make the problem easier).
 \benum
-\item For what real numbers $x$ will the computer claim that the inequalities $1 < x < 2$ hold?
-\item For what real numbers $x$ will the computer claim $x = 4?$
-\item Suppose it is stated that there is a floating point number $x^*$ that is the exact solution of
-$x^2-2=0.$   Why is this not possible? Also, suppose $x^*_L$ and $x^*_R$ are the floats to the left and right of $\sqrt 2$ respectively.  What is the value of $x^*_R-x^*_L?$
+\item
+	In order for $x>1$ to hold, the machine must see $x$ as at least $1+\epsilon_{mach}$. For a single precision machine, $\epsilon_{mach}
+	=\frac{1}{2^{23}} \approx 1.19*10^{-7}$. We must now find the lowest possible value of $x$ needed for the machine to make the
+	assignment. According to the round to nearest rule, a float will be rounded up if the binary representation of $x$ has a 1 in the
+	$24^{th}$ decimal place, and digits $[25, \infty)$ hold at least one nonzero digit. The smallest binary value of $x$ that satisfies
+	these requirements is $$x_1 = 1.000\ 000\ 000\ 000\ 000\ 000\ 000\ 001\ 0\cdots1_2$$
+	As this number contains an infinite number of zeros after between the final two ones, we can only say that $x$ must be greater
+	than $x^*$. Therefore,
+	$$x>1+2^{-24} \rightarrow x>1.000000059604644775390625$$\\
+
+	In order for $x<2$ to hold, the machine must see $x$ as at most $2-\epsilon_{mach}$. The maximum possible value of $x$ that is seen
+	as $2-\epsilon_{mach}$ is the upper bound on the inequality. According to the round to nearest rule, a float will be rounded down if
+	the final digit in the binary representation of $x$ has a 1 in the $24^{th}$ decimal place, and digits $[25, \infty)$ are all zero.
+	This is the maximum possible value that can be rounded down, which can be written as
+	$$x_2 = 2-2^{-24} = 1.999999940395355224609375$$
+The values for which $1<x<2$ will hold on a single precision machine are $$(1.000000059604644775390625, 1.999999940395355224609375]$$ \\
+
+\item
+	In order for $x=4$ to hold, $x$ must be within the machine's ``margin of error'', or within $\pm \epsilon_{mach}$. According to the
+	round to nearest rule, the machine will round up if the float's binary representation has a 1 in the $24^th$ decimal place, and digits
+	$[25, \infty)$ hold at least one nonzero digit. The minimum possible value of $x$ that the machine will store as 4 is then
+
+	$x_1 > (4-2^{-24}) \rightarrow x_1 > 3.999999940395355224609375$. \\
+
+	The maximum possible value of $x$ that the machine will store as 4 would simply be $4+2^{-24}$, as a 1 in the $24^{th}$ decimal place
+	of the binary representation, followed by all zeros is rounded down.
+
+	$x_2 = 4+2^{-24} \rightarrow x_2 < 4.000000059604644775390625$.
+
+	$$x_1 < x < x_2 \rightarrow x=4$$ \\
+
+\item
+
+	This number is not possible because $\sqrt{2}$ is irrational, so it containts an infinite number of nonrepeating decimal digits.
+	Because machines are finite precision, no computer can fully represent $\sqrt{2}$ without any rounding or approximation. \\
+
+	When converted to binary, $\sqrt{2}_2 = 1.011\ 010\ 100\ 000\ 100\ 111\ 100\ 11\cdots$. Therefore, $x^*_l$ is the truncated form
+	of the number, and $x^*_r$ the truncated form of $\sqrt{2} + 2^{-23}$
+
+	$$x^*_l = 1.011\ 010\ 100\ 000\ 100\ 111\ 100\ 11,\ x^*_r = 1.011\ 010\ 100\ 000\ 100\ 111\ 101\ 00$$
+
+	\begin{center}
+	\begin{tabular}{cc}
+		&$1.01101010000010011110100$ \\
+		$-$ & $1.01101010000010011110011$ \\
+		\hline
+		&$0.00000000000000000000001$ \\
+	\end{tabular}
+	\end{center}
+
+	$$x^*_r - x^*_l = 2^{-23} = 1.1920928955078125×10^-7$$ \\
+
 \eenum
 
 % Problem 7
 \item
 \benum
 \item A problem is ill-conditioned if its solution is highly sensitive to small changes in the input data.  True or False? \\
-	True. An ill-conditioned problem will grow a slight error in input data to a large error in later stages
+	True. An ill-conditioned problem will grow a slight error in input data to a large error in later stages \\
 
-\item Using higher-precision arithmetic will make an ill-conditioned problem better conditioned.  True or False?
-\item  If two real numbers are exactly representable as floating-point numbers on a finite-precision machine, then so is their product.  True or False?
+\item Using higher-precision arithmetic will make an ill-conditioned problem better conditioned.  True or False? \\
+	False. While the initial input data may not be as incorrect, an ill-conditioned problem will still grow that error until the result
+	is not significant. \\
+
+\item  If two real numbers are exactly representable as floating-point numbers on a finite-precision machine, then so is their product.  True or False? \\
+	False.
 \item  Consider the sum
 \[
 S = \frac{1}{x+1} + \frac{1}{x-1}, \quad x \ne 1.
