@@ -384,7 +384,8 @@ The values for which $1<x<2$ will hold on a single precision machine are $$(1.00
 	is not significant. \\
 
 \item  If two real numbers are exactly representable as floating-point numbers on a finite-precision machine, then so is their product.  True or False? \\
-	False.
+	False. If the two numbers are small enough, i.e. $2^-{23} * 2^{-23}$ on a single-precision machine, then their product will be
+	smaller than the underflow limit of the machine, which cannot be exactly represented.
 \item  Consider the sum
 \[
 S = \frac{1}{x+1} + \frac{1}{x-1}, \quad x \ne 1.
