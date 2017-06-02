@@ -63,6 +63,39 @@
 
 		\end{enumerate}
 
+		\item For a ``good'' starting guess when undergoing Newton approximation, the rate of convergence is quadratic. \\
+
+			After choosing a good starting guess, the next approximations for $f(x)=0$ are determined by $x_{n+1} = x_n-\frac{f(x_n)}{f^{'}(x_n)}$, where
+			$x_n$ approaches the true zero, $x=\alpha$. At each stage, the error is $e_n = |x_n-\alpha|$, and the rate of convergance would be
+			$\frac{e_n}{e_{n+1}}$. \\
+
+			We let the function $f(x)$ be approximated by the first order Taylor polynomial about $x_n$.
+			$$f(x) = f(x_n) + (x-x_n)f^{'}(x_n) + \frac{1}{2} (x-x_n)^2f^{''}(c_n)$$
+			where $c_n$ is a constant close to $x_n$ used to estimate the remainder. If we evaluate the approximation at $x=\alpha$, we would ideally get zero,
+			as this is the true root of the function.
+			$$0 = f(x_n) + (\alpha - x_n)f^{'}(x_n) + \frac{1}{2} (\alpha-x_n)^2f^{''}(c_n)$$
+			If we then divide by $f^{'}(x_n)$, we see that the expression for $x_{n+1}$ appears.
+			$$0 = \frac{f(x_n)}{f^{'}(x_n)}+(\alpha-x_n) + \frac{(\alpha-x_n)^2}{2} \frac{f^{''}(c_n)}{f^{'}(x_n)} $$
+			$$x_n - \frac{f(x_n)}{f^{'}(x_n)} - \alpha = \frac{(\alpha-x_n)^2}{2} \frac{f^{''}(c_n)}{f^{'}(x_n)} $$
+			$$x_{n+1}-\alpha = \frac{1}{2} (\alpha - x_n)^2 \frac{f^{''}(c_n)}{f^{'}(x_n)} $$
+			We know that by definition, $x_n-\alpha = e_n$, and that $\lim_{n\to\infty}x_n = \alpha$,  so this can be rewritten as
+			$$\frac{e_{n+1}}{{e_n}^2} = \frac{1}{2}\frac{f^{''}(\alpha)}{f^{'}(\alpha)} $$
+			Because the right hand side is constant, and the ratio of errors is of the form $\frac{R}{R^2} = c$, we can say that the sequence is
+			quadratically convergant. \\
+
+			If a poor starting guess is chosen, Newton's method will not converge at all towards a root of the function. A ``bad'' starting guess would be in
+			the region [a,b] about the root such that
+
+			\begin{itemize}
+				\item $f,f^{'}, f^{''}$ does not exist in [a,b]
+				\item $f^{'} = 0$ in [a,b]
+				\item $f^{''}$ changes sign in [a,b] \\
+			\end{itemize}
+
+			\begin{center}
+				Therefore, \textbf{ii and iii} are correct. \\
+			\end{center}
+
 		\item
 
 	\end{enumerate}
