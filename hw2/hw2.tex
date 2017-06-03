@@ -6,6 +6,7 @@
 \usepackage{mathtools}
 \usepackage{fullpage}
 \usepackage{graphicx}
+\usepackage{float}
 \usepackage[utf8]{inputenc}
 
 %Symbol shortcuts
@@ -51,7 +52,7 @@
 		iteration $n-1$ as $n \rightarrow \infty$.
 		$$conv = \lim_{n\to\infty} \frac{e_n}{e_{n-1}}$$
 
-		\begin{enumerate}[(i)]
+		\begin{enumerate}[i.]
 
 			\item This algorithm is linearlly convergent, or has a constant convergance rate, as the ratio between every adjacent
 			error is $\frac{1}{2}$.
@@ -126,6 +127,11 @@
 		Also, Newton's method can be somewhat more difficult to compute, as the $f^{'}$ is needed to compute the root of $f$. The
 		bisection method relies solely on $f$. \\
 
+		\item One of the main advantages of the Secant method over Newton's method is the fact that the secant method does not require
+		$f^{'}(x)$ to approximate the root. However, it requires two starting guesses, and does not converge at the rate of
+		Newton's method (Newton's: quadratic convergance, secant: ``superlinear'' convergance).
+
+
 		\item $f(x) = 2-x^2$
 
 		$f^{'}(x) = -2x$
@@ -155,7 +161,49 @@
 		Compared to the actual value of the root, $\sqrt{2}$, the relative error is
 		$\frac{x_5 - \sqrt{2}}{\sqrt{2}} \approx 1.13*10^{-12}$ \\
 
+		\item The bisection method will not converge to a real number answer. The rule of the bisection method is that you begin by
+		defining a domain in which the root lies, which is done by checking where $f(x)$ changes sign. In the case of
+		$f(x) = \frac{1}{x} $, the function only changes sign if the lower bound ($x=a$) is less than zero, and the upper bound
+		($x=b$) is greater than zero.
+
+		As this is the only possible point the zero could be, the bisection algorithm will keep approaching the midpoint of
+		[a,b], which will approach zero. But as we know,
+		$\frac{1}{0+\delta}$ becomes increasingly large as $\delta \to 0$.
+
+		Therefore, the bisection method will not converge to a real number answer, which is good, since there are no real number
+		answers to $\frac{1}{x} = 0$. \\
+
+		\begin{figure}[H]
+			\centering
+			\includegraphics{q1i.png}
+			\caption{Graph of $\frac{1}{x}$ produced by MATLAB}
+		\end{figure}
+
+		\newpage
+
 		\item
+		\begin{enumerate}[i.]
+		\item $f(x) = x^2sinx^2$
+
+		$f(x) = (x-r)^m*F(x)$
+
+		The exponent on the $(x-r)$ term of the function is, by definition, the multiplicity of the root $r$. In this case
+		the multiplicity of root $r = 0$ is 2.
+
+		\item Assume we are using Newton's method for root finding. The next approximated zero is defined as $x_{n+1} =
+			x_n - \frac{f(x_n)}{f^{'}(x_n)}$.
+
+			If $f^{'}(x) >> 1$ as the approximation approaches the root, then we should
+			use the $f(x_n)$ as the stopping criteria, since if $f^{'}(x_n)$ grows too large, we lose the significance of the
+			result $(\frac{f(x_n)}{f^{'}(x_n)} \approx 0)$.
+
+			If $f^{'}(x_n) << 1$, we should approximate the zero as $x_{n+1}-
+			x_n$, since a large $f^{'}(x_n) \to \frac{f(x_n)}{f^{'}(x_n)} \approx \infty$, which again removes significance
+			from the result. \\
+
+			In this case, $f^{'}(x) = 2xsinx^2 + x^2cosx^2$. As $x\to0$, the function will grow increasingly small. Therefore,
+			we should accept the result when $|x_{n+1} - x_n| < tol$. \\
+		\end{enumerate}
 
 	\end{enumerate}
 
