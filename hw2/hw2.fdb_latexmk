@@ -1,5 +1,5 @@
 # Fdb version 3
-["pdflatex"] 1496505035 "hw2.tex" "hw2.pdf" "hw2" 1496505035
+["pdflatex"] 1496528534 "hw2.tex" "hw2.pdf" "hw2" 1496528534
   "/etc/texmf/web2c/texmf.cnf" 1487906957 475 c0e671620eb5563b2130f56340a5fde8 ""
   "/usr/share/texlive/texmf-dist/fonts/map/fontname/texfonts.map" 1272929888 3287 e6b82fe08f5336d4d5ebc73fb1152e87 ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm" 1246382020 1004 54797486969f23fa377b128694d548df ""
@@ -79,10 +79,12 @@
   "/usr/share/texmf/web2c/texmf.cnf" 1471618383 31348 3c11c993a1d7e4662292855f9f7c8e1b ""
   "/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map" 1487911518 1938010 a757a460f2fd82210c4d6c8c2cbaedc2 ""
   "/var/lib/texmf/web2c/pdftex/pdflatex.fmt" 1487911627 3868954 34ef91b69884bcf1d337a66d3d15a9a0 ""
-  "hw2.aux" 1496505035 128 012601203202a083885fefb6b8c5e654 ""
-  "hw2.tex" 1496505034 9954 8edb653bcaeddade427552079ffa3ff4 ""
+  "hw2.aux" 1496528534 344 c28f22b298dcbd388ddc4aaac31aa01a ""
+  "hw2.tex" 1496528533 13051 c6f0893b8027006a6fac03400b7b3234 ""
   "q1i.png" 1496503157 11867 ab01c75a61a67d09110a686ea65bb433 ""
+  "q2_derivgraph.png" 1496527615 14283 0d6338253e4c4d6877e4d90e52a631d0 ""
+  "q2_graph.png" 1496523413 12562 318cb39872a2d606a215a5b2a6fb6023 ""
   (generated)
-  "hw2.log"
   "hw2.pdf"
+  "hw2.log"
   "hw2.aux"

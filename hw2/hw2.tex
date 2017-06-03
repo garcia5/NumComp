@@ -175,11 +175,9 @@
 
 		\begin{figure}[H]
 			\centering
-			\includegraphics{q1i.png}
+			\includegraphics[width=0.6\textwidth]{q1i.png}
 			\caption{Graph of $\frac{1}{x}$ produced by MATLAB}
 		\end{figure}
-
-		\newpage
 
 		\item
 		\begin{enumerate}[i.]
@@ -207,6 +205,73 @@
 
 	\end{enumerate}
 
+\item Holmes 2.4 (B)
+
+	\begin{enumerate}[(a)]
+
+		\item See Figure 2
+			\begin{figure}[H]
+			\centering
+			\includegraphics[width=0.6\textwidth]{q2_graph.png}
+			\caption{Graph of $sinx$ and $1-x^2$}
+		\end{figure}
+
+		\item We can treat the equation $sinx = 1-x^2$ as $sinx + x^2 - 1 = 0$, where we are solving for the roots of the function.
+		It is clear that the intersection of the two points occurrs somewhere between $x=0.5$ and $x=1$, so we choose $a = 0.5$ and
+		$b=1$. We can see that the root lies within this range, since $f(0.5) \approx -0.27057\dots$, and $f(1) \approx 0.84147\dots$,
+		meaning that $f(a) * f(b) < 0$. We have shown that the function changes sign in this interval, and according to the
+		Intermediate Value Theorem, if a function is continuous over an interval, then the function must take every value between
+		$(f(a), f(b)$. In this case, it means that if a function is negative on one end of the interval and positive on the other,
+		the zero must lie somewhere in the interval.\\
+
+		The initial guess, $c_0$ would simply be the midpoint of $a$ and $b$.
+		$$c_0 = \frac{b+a}{2} = \frac{1.5}{2} = 0.75$$
+
+		We must then test to see whether $a$ is replaced by $c_0$, or if $b$ is replaced by $c_0$.
+		$$f(c_0) \approx 0.24414\dots$$
+
+		Because the root must lie in the domain where $f(x)$ changes signs, we must replace $a$ with $c_0$, as $f(a) > 0$.
+
+		We now repeat the process to find $c_1$
+		$$c_1 = \frac{b+c_0}{2} = \frac{1.25}{2} = 0.625$$
+
+		\item The general form for each iteration of Newton's method is
+		$$x_{n+1} = x_n - \frac{f(x_n)}{f^{'}(x_n)} $$
+		In this case, $f(x) = sinx + x^2 - 1$, and $f^{'}(x) = cosx + 2x$. The only element left is $x_0$. This must be chosen
+		carefully, as a poor initial guess will not lead to convergance. A good guess will follow the rules outlined in Question 1
+		part (d). As a quick check,
+
+		\begin{itemize}
+			\item $f(x) = sinx + x^2 - 1,\ f^{'}(x) = cosx+2x,\ f^{''}(x) = 2-sinx$
+
+			\item If $a = 0$ and $b=1$, we can see that $f(a) = -1,\ f(b) = sin(1)$, so $f(a)*f(b) < 0$. This means there is a
+			root in the range $[a,b]$.
+
+			\item As shown in Figure 3, the first derivative of $f(x)$ is nonzero for all $0 \leq x \leq 1$.
+
+			\item As shown in Figure 3, the second derivative of $f(x)$ is positive for all $0 \leq x \leq 1$.
+
+			\item $|\frac{f(a)}{f^{'}(a)}| = \frac{1}{1} \leq 1-0$
+
+			$|\frac{f(b)}{f^{'}(b)}| = \frac{sin(1)}{cos(1) + 2} \approx 0.33125 \leq 1-0$
+
+		\end{itemize}
+
+		\begin{figure}[H]
+			\centering
+			\includegraphics[width=0.6\textwidth]{q2_derivgraph.png}
+			\caption{Graph of $f^{'}(x)$ and $f^{''}(x)$}
+		\end{figure}
+
+		We can now proceed with a starting guess anywhere in the range $0 \leq x_0 \leq 1$. As it is the easiest, choose $x_0 = 0$.
+
+		$$x_1 = 0 - \frac{f(0)}{f^{'}(0)} = -\frac{-1}{1} = 1$$
+
+		\item The general form for the secant method is
+			$$x_{n+2} = x_{n} - \frac{f(x_n)(x_{n+1}-x_n)}{f(x_{n+1})-f(x_n)} = x_n - \frac{f(x_n)}{m_n} $$
+
+			A good choice for starting points $x_0, x_1$ would be points such that the secant line approaches
+	\end{enumerate}
 \end{enumerate}
 
 \end{document}

@@ -123,6 +123,12 @@ INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmbx10.tfm
 INPUT q1i.png
 INPUT ./q1i.png
 INPUT ./q1i.png
+INPUT q2_graph.png
+INPUT ./q2_graph.png
+INPUT ./q2_graph.png
+INPUT q2_derivgraph.png
+INPUT ./q2_derivgraph.png
+INPUT ./q2_derivgraph.png
 INPUT hw2.aux
 INPUT /usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb
 INPUT /usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb
