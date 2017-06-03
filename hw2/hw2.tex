@@ -96,6 +96,65 @@
 				Therefore, \textbf{ii and iii} are correct. \\
 			\end{center}
 
+			\newpage
+
+		\item True. If an initial guess for Newton's root finding method is to be considered ``good'', it must follow some criteron.
+		\begin{itemize}
+			\item $f, f^{'}, f^{''}$ must exist exist
+
+			\item Choose $a,b$ such that $f(a)*f(b)<0$
+
+			\item $f^{'} \neq 0$ in $[a,b]$
+
+			\item $f^{''}$ does not change sign in $[a,b]$
+
+			\item $|\frac{f(a)}{f^{'}(a)}|$ and $|\frac{f(b)}{f^{'}(b)}| < |b-a|$
+		\end{itemize}
+
+		If all of these hold true, the there will be a unique root in $[a,b]$, and any starting guess in $[a,b]$ will
+		converge to the root. Therefore, if $x_0$ leads to convergance, then any guess between $x^*$ and $x_0$ will also
+		lead to convergance. \\
+
+		\item One of the main advantages of Newton's method over the bisection method is the speed at which it can approximate roots.
+		The quadratic convergance rate of Newton's method means that given a good starting guess, it can approximate a root in a
+		fraction of the time of the bisection method.
+
+		However, unlike the bisection method, it requires a good starting guess. If
+		the initial zero chosen does not follow some precise specifications (see part(d)), then the method will not converge. Despite
+		its much longer runtime, the bisection method will always work, given that $\alpha$ lies in the initial range.
+
+		Also, Newton's method can be somewhat more difficult to compute, as the $f^{'}$ is needed to compute the root of $f$. The
+		bisection method relies solely on $f$. \\
+
+		\item $f(x) = 2-x^2$
+
+		$f^{'}(x) = -2x$
+
+		We choose $x_0=2$ for a starting guess. \\
+
+		The rule for Newton's method is $x_{n+1} = x_n-\frac{f(x_n)}{f^{'}(x_n)}$ \\
+
+		$x_1 = x_0 - \frac{f(x_0)}{f^{'}(x_0)} = \frac{3}{2}$ \\
+
+		$x_2 = x_1 - \frac{f(x_1)}{f^{'}(x_1)} = \frac{17}{12}$ \\
+
+		$x_3 = x_2 - \frac{f(x_2)}{f^{'}(x_2)} = \frac{577}{408}$ \\
+
+		$x_4 = x_3 - \frac{f(x_3)}{f^{'}(x_3)} = \frac{665857}{470832}$ \\
+
+		$x_5 = x_4 - \frac{f(x_4)}{f^{'}(x_4)} = \frac{886731088897}{627013566048}$ \\
+
+		At this point, if we define the tolerance as $10^{-12}$, we must see if we are close enough to the root. Because technically
+		we do not know the true answer $\sqrt{2}$, we see if the last two roots are sufficiently close together.
+
+		$x_5 - x_4 = \frac{665857}{470832} - \frac{886731088897}{627013566048} = \frac{1}{627013566048} \approx 1.6*10^{-12}$
+
+		The result is within the defined tolerance, and the algorithm is complete, with the calculated root being
+		$$x_5 = \frac{886731088897}{627013566048} \approx 1.41421356237468$$
+
+		Compared to the actual value of the root, $\sqrt{2}$, the relative error is
+		$\frac{x_5 - \sqrt{2}}{\sqrt{2}} \approx 1.13*10^{-12}$ \\
+
 		\item
 
 	\end{enumerate}
