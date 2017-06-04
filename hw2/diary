@@ -1,0 +1,62 @@
+callNewton
+First root guess
+ n = 1 Solution = -2.0000000e+00    Error = 2.8096256e-01 
+
+ n = 2 Solution = -1.7190374e+00    Error = 2.1895787e-01 
+
+ n = 3 Solution = -1.5000796e+00    Error = 1.5898695e-01 
+
+ n = 4 Solution = -1.3410926e+00    Error = 9.7511340e-02 
+
+ n = 5 Solution = -1.2435813e+00    Error = 3.9581864e-02 
+
+ n = 6 Solution = -1.2039994e+00    Error = 6.2324884e-03 
+
+ n = 7 Solution = -1.1977669e+00    Error = 1.4313208e-04 
+
+ n = 8 Solution = -1.1976238e+00    Error = 7.4202301e-08 
+
+ n = 9 Solution = -1.1976237e+00    Error = 1.9984014e-14 
+
+ n = 10 Solution = -1.1976237e+00    Error = 2.2204460e-16 
+
+Second root guess
+ n = 1 Solution = -1.0000000e+00    Error = 1.2215363e+00 
+
+ n = 2 Solution = -2.2215363e+00    Error = 3.2506234e-01 
+
+ n = 3 Solution = -1.8964740e+00    Error = 2.5920637e-01 
+
+ n = 4 Solution = -1.6372676e+00    Error = 1.9842363e-01 
+
+ n = 5 Solution = -1.4388440e+00    Error = 1.3815577e-01 
+
+ n = 6 Solution = -1.3006882e+00    Error = 7.6481730e-02 
+
+ n = 7 Solution = -1.2242065e+00    Error = 2.4288994e-02 
+
+ n = 8 Solution = -1.1999175e+00    Error = 2.2749223e-03 
+
+ n = 9 Solution = -1.1976426e+00    Error = 1.8859717e-05 
+
+ n = 10 Solution = -1.1976237e+00    Error = 1.2878265e-09 
+
+ n = 11 Solution = -1.1976237e+00    Error = 2.2204460e-16 
+
+Third root guess
+ n = 1 Solution = 2.0000000e+00    Error = 2.2072493e-01 
+
+ n = 2 Solution = 1.7792751e+00    Error = 1.4930150e-01 
+
+ n = 3 Solution = 1.6299736e+00    Error = 7.7477968e-02 
+
+ n = 4 Solution = 1.5524956e+00    Error = 2.0953809e-02 
+
+ n = 5 Solution = 1.5315418e+00    Error = 1.4022868e-03 
+
+ n = 6 Solution = 1.5301395e+00    Error = 5.9988826e-06 
+
+ n = 7 Solution = 1.5301335e+00    Error = 1.0939849e-10 
+
+ n = 8 Solution = 1.5301335e+00    Error = 2.2204460e-16 
+diary off

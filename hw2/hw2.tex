@@ -7,6 +7,7 @@
 \usepackage{fullpage}
 \usepackage{graphicx}
 \usepackage{float}
+\usepackage{listings}
 \usepackage[utf8]{inputenc}
 
 %Symbol shortcuts
@@ -66,50 +67,50 @@
 
 		\item For a ``good'' starting guess when undergoing Newton approximation, the rate of convergence is quadratic. \\
 
-			After choosing a good starting guess, the next approximations for $f(x)=0$ are determined by $x_{n+1} = x_n-\frac{f(x_n)}{f^{'}(x_n)}$, where
+			After choosing a good starting guess, the next approximations for $f(x)=0$ are determined by $x_{n+1} = x_n-\frac{f(x_n)}{f'(x_n)}$, where
 			$x_n$ approaches the true zero, $x=\alpha$. At each stage, the error is $e_n = |x_n-\alpha|$, and the rate of convergance would be
 			$\frac{e_n}{e_{n+1}}$. \\
 
 			We let the function $f(x)$ be approximated by the first order Taylor polynomial about $x_n$.
-			$$f(x) = f(x_n) + (x-x_n)f^{'}(x_n) + \frac{1}{2} (x-x_n)^2f^{''}(c_n)$$
+			$$f(x) = f(x_n) + (x-x_n)f'(x_n) + \frac{1}{2} (x-x_n)^2f''(c_n)$$
 			where $c_n$ is a constant close to $x_n$ used to estimate the remainder. If we evaluate the approximation at $x=\alpha$, we would ideally get zero,
 			as this is the true root of the function.
-			$$0 = f(x_n) + (\alpha - x_n)f^{'}(x_n) + \frac{1}{2} (\alpha-x_n)^2f^{''}(c_n)$$
-			If we then divide by $f^{'}(x_n)$, we see that the expression for $x_{n+1}$ appears.
-			$$0 = \frac{f(x_n)}{f^{'}(x_n)}+(\alpha-x_n) + \frac{(\alpha-x_n)^2}{2} \frac{f^{''}(c_n)}{f^{'}(x_n)} $$
-			$$x_n - \frac{f(x_n)}{f^{'}(x_n)} - \alpha = \frac{(\alpha-x_n)^2}{2} \frac{f^{''}(c_n)}{f^{'}(x_n)} $$
-			$$x_{n+1}-\alpha = \frac{1}{2} (\alpha - x_n)^2 \frac{f^{''}(c_n)}{f^{'}(x_n)} $$
+			$$0 = f(x_n) + (\alpha - x_n)f'(x_n) + \frac{1}{2} (\alpha-x_n)^2f''(c_n)$$
+			If we then divide by $f'(x_n)$, we see that the expression for $x_{n+1}$ appears.
+			$$0 = \frac{f(x_n)}{f'(x_n)}+(\alpha-x_n) + \frac{(\alpha-x_n)^2}{2} \frac{f''(c_n)}{f'(x_n)} $$
+			$$x_n - \frac{f(x_n)}{f'(x_n)} - \alpha = \frac{(\alpha-x_n)^2}{2} \frac{f''(c_n)}{f'(x_n)} $$
+			$$x_{n+1}-\alpha = \frac{1}{2} (\alpha - x_n)^2 \frac{f''(c_n)}{f'(x_n)} $$
 			We know that by definition, $x_n-\alpha = e_n$, and that $\lim_{n\to\infty}x_n = \alpha$,  so this can be rewritten as
-			$$\frac{e_{n+1}}{{e_n}^2} = \frac{1}{2}\frac{f^{''}(\alpha)}{f^{'}(\alpha)} $$
+			$$\frac{e_{n+1}}{{e_n}^2} = \frac{1}{2}\frac{f''(\alpha)}{f'(\alpha)} $$
 			Because the right hand side is constant, and the ratio of errors is of the form $\frac{R}{R^2} = c$, we can say that the sequence is
-			quadratically convergant. \\
+			quadratically convergant. Or, if $c= 1$, we can say that the sequence is linearlly convergant. \\
 
 			If a poor starting guess is chosen, Newton's method will not converge at all towards a root of the function. A ``bad'' starting guess would be in
 			the region [a,b] about the root such that
 
 			\begin{itemize}
-				\item $f,f^{'}, f^{''}$ does not exist in [a,b]
-				\item $f^{'} = 0$ in [a,b]
-				\item $f^{''}$ changes sign in [a,b] \\
+				\item $f,f', f''$ does not exist in [a,b]
+				\item $f' = 0$ in [a,b]
+				\item $f''$ changes sign in [a,b] \\
 			\end{itemize}
 
 			\begin{center}
-				Therefore, \textbf{ii and iii} are correct. \\
+				Therefore, \textbf{iv} is correct. \\
 			\end{center}
 
 			\newpage
 
 		\item True. If an initial guess for Newton's root finding method is to be considered ``good'', it must follow some criteron.
 		\begin{itemize}
-			\item $f, f^{'}, f^{''}$ must exist exist
+			\item $f, f', f''$ must exist exist
 
 			\item Choose $a,b$ such that $f(a)*f(b)<0$
 
-			\item $f^{'} \neq 0$ in $[a,b]$
+			\item $f' \neq 0$ in $[a,b]$
 
-			\item $f^{''}$ does not change sign in $[a,b]$
+			\item $f''$ does not change sign in $[a,b]$
 
-			\item $|\frac{f(a)}{f^{'}(a)}|$ and $|\frac{f(b)}{f^{'}(b)}| < |b-a|$
+			\item $|\frac{f(a)}{f'(a)}|$ and $|\frac{f(b)}{f'(b)}| < |b-a|$
 		\end{itemize}
 
 		If all of these hold true, the there will be a unique root in $[a,b]$, and any starting guess in $[a,b]$ will
@@ -124,31 +125,31 @@
 		the initial zero chosen does not follow some precise specifications (see part(d)), then the method will not converge. Despite
 		its much longer runtime, the bisection method will always work, given that $\alpha$ lies in the initial range.
 
-		Also, Newton's method can be somewhat more difficult to compute, as the $f^{'}$ is needed to compute the root of $f$. The
+		Also, Newton's method can be somewhat more difficult to compute, as the $f'$ is needed to compute the root of $f$. The
 		bisection method relies solely on $f$. \\
 
 		\item One of the main advantages of the Secant method over Newton's method is the fact that the secant method does not require
-		$f^{'}(x)$ to approximate the root. However, it requires two starting guesses, and does not converge at the rate of
+		$f'(x)$ to approximate the root. However, it requires two starting guesses, and does not converge at the rate of
 		Newton's method (Newton's: quadratic convergance, secant: ``superlinear'' convergance).
 
 
 		\item $f(x) = 2-x^2$
 
-		$f^{'}(x) = -2x$
+		$f'(x) = -2x$
 
 		We choose $x_0=2$ for a starting guess. \\
 
-		The rule for Newton's method is $x_{n+1} = x_n-\frac{f(x_n)}{f^{'}(x_n)}$ \\
+		The rule for Newton's method is $x_{n+1} = x_n-\frac{f(x_n)}{f'(x_n)}$ \\
 
-		$x_1 = x_0 - \frac{f(x_0)}{f^{'}(x_0)} = \frac{3}{2}$ \\
+		$x_1 = x_0 - \frac{f(x_0)}{f'(x_0)} = \frac{3}{2}$ \\
 
-		$x_2 = x_1 - \frac{f(x_1)}{f^{'}(x_1)} = \frac{17}{12}$ \\
+		$x_2 = x_1 - \frac{f(x_1)}{f'(x_1)} = \frac{17}{12}$ \\
 
-		$x_3 = x_2 - \frac{f(x_2)}{f^{'}(x_2)} = \frac{577}{408}$ \\
+		$x_3 = x_2 - \frac{f(x_2)}{f'(x_2)} = \frac{577}{408}$ \\
 
-		$x_4 = x_3 - \frac{f(x_3)}{f^{'}(x_3)} = \frac{665857}{470832}$ \\
+		$x_4 = x_3 - \frac{f(x_3)}{f'(x_3)} = \frac{665857}{470832}$ \\
 
-		$x_5 = x_4 - \frac{f(x_4)}{f^{'}(x_4)} = \frac{886731088897}{627013566048}$ \\
+		$x_5 = x_4 - \frac{f(x_4)}{f'(x_4)} = \frac{886731088897}{627013566048}$ \\
 
 		At this point, if we define the tolerance as $10^{-12}$, we must see if we are close enough to the root. Because technically
 		we do not know the true answer $\sqrt{2}$, we see if the last two roots are sufficiently close together.
@@ -189,17 +190,17 @@
 		the multiplicity of root $r = 0$ is 2.
 
 		\item Assume we are using Newton's method for root finding. The next approximated zero is defined as $x_{n+1} =
-			x_n - \frac{f(x_n)}{f^{'}(x_n)}$.
+			x_n - \frac{f(x_n)}{f'(x_n)}$.
 
-			If $f^{'}(x) >> 1$ as the approximation approaches the root, then we should
-			use the $f(x_n)$ as the stopping criteria, since if $f^{'}(x_n)$ grows too large, we lose the significance of the
-			result $(\frac{f(x_n)}{f^{'}(x_n)} \approx 0)$.
+			If $f'(x) >> 1$ as the approximation approaches the root, then we should
+			use the $f(x_n)$ as the stopping criteria, since if $f'(x_n)$ grows too large, we lose the significance of the
+			result $(\frac{f(x_n)}{f'(x_n)} \approx 0)$.
 
-			If $f^{'}(x_n) << 1$, we should approximate the zero as $x_{n+1}-
-			x_n$, since a large $f^{'}(x_n) \to \frac{f(x_n)}{f^{'}(x_n)} \approx \infty$, which again removes significance
+			If $f'(x_n) << 1$, we should approximate the zero as $x_{n+1}-
+			x_n$, since a large $f'(x_n) \to \frac{f(x_n)}{f'(x_n)} \approx \infty$, which again removes significance
 			from the result. \\
 
-			In this case, $f^{'}(x) = 2xsinx^2 + x^2cosx^2$. As $x\to0$, the function will grow increasingly small. Therefore,
+			In this case, $f'(x) = 2xsinx^2 + x^2cosx^2$. As $x\to0$, the function will grow increasingly small. Therefore,
 			we should accept the result when $|x_{n+1} - x_n| < tol$. \\
 		\end{enumerate}
 
@@ -237,7 +238,7 @@
 
 		\item The general form for each iteration of Newton's method is
 		$$x_{n+1} = x_n - \frac{f(x_n)}{f^{'}(x_n)} $$
-		In this case, $f(x) = sinx + x^2 - 1$, and $f^{'}(x) = cosx + 2x$. The only element left is $x_0$. This must be chosen
+		In this case, $f(x) = sinx + x^2 - 1$, and $f'(x) = cosx + 2x$. The only element left is $x_0$. This must be chosen
 		carefully, as a poor initial guess will not lead to convergance. A good guess will follow the rules outlined in Question 1
 		part (d). As a quick check,
 
@@ -305,7 +306,173 @@
 			\end{figure}
 	\end{enumerate}
 
-\item
+	\newpage
+\item Consider the function $f(x) = e^{sin^3x}+x^6-2x^4-x^3-1, -2 \leq x \leq 2$
+
+	\begin{enumerate}[(a)]
+		\item See Figure 7
+
+			\begin{figure}[H]
+				\centering
+				\includegraphics[width=0.7\textwidth]{q3_plot.png}
+				\caption{Graph of $f(x)$}
+			\end{figure}
+
+		\item For the calculation of roots $r_n,\ n=1,2,3$, the tolerance was defined by $x_{n+1}-x_n$. This is due to the fact that
+			the derivative is very small about the roots, so there would be some loss of significance when calculating the roots
+			due to the size of the resulting fraction.
+
+			\begin{center}
+				Function definitions of $f(x)$ and $f'(x)$
+			\end{center}
+			\begin{verbatim}
+			% generate y = f, yp=f' from given function input
+			function [y,yp] = f(x)
+			y = exp(sin(x).^3)+x.^6-2*x.^4-x.^3-1;
+			yp = 3*exp(sin(x).^3).*(sin(x)).^2.*cos(x)+6*x.^5-8*x.^3-3*x.^2;
+			\end{verbatim} \
+
+			\begin{center}
+				Definition of Newton's method for root finding
+			\end{center}
+			\begin{verbatim}
+			function [x,n] = myNewton(fun, x0, tol)
+			% input:
+			% x0 = initial guess
+			% tol = tolerance allowed for error
+			%  - tol calculated by (x_n+1)-(x_n), as f'(x) is small close to f(x)=0
+			% fun = function whose zeroes are being calculated
+			%
+			% output:
+			% x = calculated root of f(x)
+			% n = number of iterations needed to calculate root
+			x = x0; % initial guess
+			n = 0;
+			% initialize other vars to zero
+			err = 0;
+			dx = 0;
+
+			while n <= 20 % set iteration limit to 20, just in case
+			    n = n+1;
+			    [y,yp] = fun(x); % assign functions defined in f.m
+			    dx = y/yp;
+			    xn = x-dx; % calculate next root
+			    err = abs(xn-x); % calculate deviation between each root
+			    fprintf('\n n = %i Solution = %12.7e    Error = %7.7e \n',n,x,err);
+			    x = xn;
+			    if err<=tol, return; end
+			end
+			warning(sprintf('root not found within tolerance after %d iterations\n',n));
+			\end{verbatim} \
+
+			\begin{center}
+				\texttt{callNewton.m} script to calculate zeroes of $f(x)$
+			\end{center}
+			\begin{verbatim}
+			% script to call myNewton function
+			% supplies initial guess 'x0' and error tolerance 'tol'
+
+			% global tolerance
+			tol = 1e-15;
+
+			% first guess
+			fprintf('First root guess');
+			g1 = -2;
+			[r1,n1] = myNewton(@f, g1, tol);
+
+			% second guess
+			fprintf('\nSecond root guess');
+			g2 = -1;
+			[r2,n2] = myNewton(@f, g2, tol);
+
+			% third guess
+			fprintf('\nThird root guess');
+			g3 = 2;
+			[r3,n3] = myNewton(@f, g3, tol);
+			\end{verbatim} \
+
+			\begin{center}
+				Output of \texttt{callNewton} script
+			\end{center}
+			\begin{verbatim}
+			callNewton
+			First root guess
+			 n = 1 Solution = -2.0000000e+00    Error = 2.8096256e-01
+			 n = 2 Solution = -1.7190374e+00    Error = 2.1895787e-01
+			 n = 3 Solution = -1.5000796e+00    Error = 1.5898695e-01
+			 n = 4 Solution = -1.3410926e+00    Error = 9.7511340e-02
+			 n = 5 Solution = -1.2435813e+00    Error = 3.9581864e-02
+			 n = 6 Solution = -1.2039994e+00    Error = 6.2324884e-03
+			 n = 7 Solution = -1.1977669e+00    Error = 1.4313208e-04
+			 n = 8 Solution = -1.1976238e+00    Error = 7.4202301e-08
+			 n = 9 Solution = -1.1976237e+00    Error = 1.9984014e-14
+			 n = 10 Solution = -1.1976237e+00    Error = 2.2204460e-16
+
+			 Second root guess
+			  n = 1 Solution = -5.0000000e-01    Error = 1.4676065e-01
+			  n = 2 Solution = -3.5323935e-01    Error = 9.5631426e-02
+			  n = 3 Solution = -2.5760793e-01    Error = 6.7372488e-02
+			  n = 4 Solution = -1.9023544e-01    Error = 4.8869777e-02
+			  n = 5 Solution = -1.4136566e-01    Error = 3.5951159e-02
+			  n = 6 Solution = -1.0541450e-01    Error = 2.6648319e-02
+			  n = 7 Solution = -7.8766184e-02    Error = 1.9838342e-02
+			  n = 8 Solution = -5.8927843e-02    Error = 1.4806905e-02
+			  n = 9 Solution = -4.4120938e-02    Error = 1.1069277e-02
+			  n = 10 Solution = -3.3051660e-02    Error = 8.2835933e-03
+			  n = 11 Solution = -2.4768067e-02    Error = 6.2031156e-03
+			  n = 12 Solution = -1.8564951e-02    Error = 4.6472589e-03
+			  n = 13 Solution = -1.3917693e-02    Error = 3.4827171e-03
+			  n = 14 Solution = -1.0434975e-02    Error = 2.6105578e-03
+			  n = 15 Solution = -7.8244177e-03    Error = 1.9571084e-03
+			  n = 16 Solution = -5.8673093e-03    Error = 1.4673852e-03
+			  n = 17 Solution = -4.3999241e-03    Error = 1.1002921e-03
+			  n = 18 Solution = -3.2996320e-03    Error = 8.2508182e-04
+			  n = 19 Solution = -2.4745502e-03    Error = 6.1873463e-04
+			  n = 20 Solution = -1.8558155e-03    Error = 4.6401069e-04
+			  n = 21 Solution = -1.3918049e-03    Error = 3.4798549e-04
+			 root not found within tolerance after 21 iterations
+
+			Third root guess
+			 n = 1 Solution = 2.0000000e+00    Error = 2.2072493e-01
+			 n = 2 Solution = 1.7792751e+00    Error = 1.4930150e-01
+			 n = 3 Solution = 1.6299736e+00    Error = 7.7477968e-02
+			 n = 4 Solution = 1.5524956e+00    Error = 2.0953809e-02
+			 n = 5 Solution = 1.5315418e+00    Error = 1.4022868e-03
+			 n = 6 Solution = 1.5301395e+00    Error = 5.9988826e-06
+			 n = 7 Solution = 1.5301335e+00    Error = 1.0939849e-10
+			 n = 8 Solution = 1.5301335e+00    Error = 2.2204460e-16
+			 \end{verbatim}
+
+			 Therefore, the roots of the function found by this method are
+			 $$x = -1.1976237,\ 1.5301335$$
+
+			 Because the middle root $f(0) = 0$ is of multiplicity 2, Newton's method was unable to approximate it.
+
+		 \item  We can define the order of convergance as $lim_{n\to\infty}\frac{ln(e_{n+1})}{ln(e_n)}$
+
+			\begin{tabular}{l||l}
+
+			First root & Third root \\
+
+			$\frac{ln(e_2)}{ln(e_1)} = 1.1964044\dots$ & $\frac{ln(e_2)}{ln(e_1)} = 1.2587634\dots$\\
+
+			$\frac{ln(e_3)}{ln(e_2)} = 0.69036433\dots$ & $\frac{ln(e_3)}{ln(e_2)} = 1.3449250\dots$\\
+
+			${}\vdotswithin{}$ & ${}\vdotswithin{}$\\
+
+			$\frac{ln(e_8)}{ln(e_7)} = 1.85460323\dots$ & $\frac{ln(e_6)}{ln(e_5)} = 1.83022469\dots$\\
+
+			$\frac{ln(e_9)}{ln(e_8)} = 1.92147535\dots$ & $\frac{ln(e_7)}{ln(e_6)} = 1.90753024\dots$\\
+
+			$\frac{ln(e_{10}}{ln(e_9)} = 1.14265255\dots$ & $\frac{ln(e_8)}{ln(e_7)} = 1.57148656\dots$\\
+
+		 \end{tabular} \\
+
+		 The second root of the function did not converge under Newton's method. The first root was approaching 2, with the last value
+		 as an outlier, meaning it converged quadratically. The third root behaved similarly to the first, with values approaching 2
+		 and a final outlier value. This makes the thrid root's convergance quadratic as well. \\
+
+	\end{enumerate}
 \end{enumerate}
 
 \end{document}
