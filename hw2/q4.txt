@@ -1,0 +1,136 @@
+rootfinder
+Searching for lowest root of a=0.1
+Search for an interval around 1.75 containing a sign change:
+ Func-count    a          f(a)             b          f(b)        Procedure
+    1            1.75       0.23814          1.75       0.23814   initial interval
+    2          1.7005     -0.269524          1.75       0.23814   search
+
+Search for a zero in the interval [1.7005, 1.75]:
+ Func-count    x          f(x)             Procedure
+    2            1.75       0.23814        initial
+    3         1.72678     0.0406233        interpolation
+    4         1.72263   -0.00113861        interpolation
+    5         1.72274   3.06366e-05        interpolation
+    6         1.72274   2.24927e-08        interpolation
+    7         1.72274  -1.11022e-15        interpolation
+    8         1.72274  -1.11022e-15        interpolation
+
+Zero found in the interval [1.7005, 1.75]
+
+Searching for lowest root of a=1
+Search for an interval around 1 containing a sign change:
+ Func-count    a          f(a)             b          f(b)        Procedure
+    1               1       1.40362             1       1.40362   initial interval
+    3        0.971716        1.4792       1.02828       1.31765   search
+    5            0.96        1.5078          1.04       1.27861   search
+    7        0.943431       1.54578       1.05657        1.2196   search
+    9            0.92       1.59495          1.08       1.12775   search
+   11        0.886863       1.65637       1.11314      0.978445   search
+   13            0.84       1.72932          1.16      0.718817   search
+   15        0.773726       1.80981       1.22627      0.214123   search
+   17            0.68       1.88928          1.32     -0.998864   search
+
+Search for a zero in the interval [0.68, 1.32]:
+ Func-count    x          f(x)             Procedure
+   17            1.32     -0.998864        initial
+   18            1.32     -0.998864        interpolation
+   19         1.21192       0.34084        interpolation
+   20         1.23942     0.0876927        interpolation
+   21         1.24817   -0.00270616        interpolation
+   22         1.24791   7.62143e-05        interpolation
+   23         1.24792   6.42978e-08        interpolation
+   24         1.24792  -1.33227e-15        interpolation
+   25         1.24792  -1.33227e-15        interpolation
+
+Zero found in the interval [0.68, 1.32]
+
+
+
+
+Searching for lowest root of a=10
+Search for an interval around 1 containing a sign change:
+ Func-count    a          f(a)             b          f(b)        Procedure
+    1               1      -5.75871             1      -5.75871   initial interval
+    3        0.971716       -4.7749       1.02828      -6.87791   search
+    5            0.96      -4.40266          1.04      -7.38619   search
+    7        0.943431      -3.90835       1.05657      -8.15456   search
+    9            0.92      -3.26844          1.08      -9.35058   search
+   11        0.886863      -2.46916       1.11314      -11.2953   search
+   13            0.84      -1.52015          1.16      -14.6777   search
+   15        0.773726      -0.47306       1.22627      -21.2553   search
+   16            0.68      0.560367       1.22627      -21.2553   search
+
+Search for a zero in the interval [0.68, 1.22627]:
+ Func-count    x          f(x)             Procedure
+   16            0.68      0.560367        initial
+   17        0.694032      0.433024        interpolation
+   18        0.740794    -0.0578764        interpolation
+   19        0.735281    0.00571623        interpolation
+   20        0.735776   6.59543e-05        interpolation
+   21        0.735782  -1.25764e-09        interpolation
+   22        0.735782   1.77636e-14        interpolation
+   23        0.735782  -4.44089e-16        interpolation
+   24        0.735782  -4.44089e-16        interpolation
+
+Zero found in the interval [0.68, 1.22627]
+
+Searching for lowest root of a=100
+Search for an interval around 1 containing a sign change:
+ Func-count    a          f(a)             b          f(b)        Procedure
+    1               1      -77.3819             1      -77.3819   initial interval
+    3        0.971716      -67.3159       1.02828      -88.8335   search
+    5            0.96      -63.5072          1.04      -94.0342   search
+    7        0.943431      -58.4496       1.05657      -101.896   search
+    9            0.92      -51.9024          1.08      -114.134   search
+   11        0.886863      -43.7246       1.11314      -134.032   search
+   13            0.84      -34.0148          1.16      -168.642   search
+   15        0.773726      -23.3018       1.22627      -235.949   search
+   17            0.68      -12.7287          1.32      -397.817   search
+   19        0.547452      -4.06133       1.45255      -1087.72   search
+   20            0.36       0.88001       1.45255      -1087.72   search
+
+Search for a zero in the interval [0.36, 1.45255]:
+ Func-count    x          f(x)             Procedure
+   20            0.36       0.88001        initial
+   21        0.360883      0.868948        interpolation
+   22        0.430207      -0.29059        interpolation
+   23        0.412834     0.0592454        interpolation
+   24        0.415776    0.00305382        interpolation
+   25        0.415934  -2.69158e-06        interpolation
+   26        0.415934     1.555e-09        interpolation
+   27        0.415934  -4.44089e-16        interpolation
+   28        0.415934  -4.44089e-16        interpolation
+
+Zero found in the interval [0.36, 1.45255]
+
+Searching for lowest root of a=1000
+Search for an interval around 0.1 containing a sign change:
+ Func-count    a          f(a)             b          f(b)        Procedure
+    1             0.1       1.93335           0.1       1.93335   initial interval
+    3       0.0971716       1.94058      0.102828       1.92548   search
+    5           0.096       1.94339         0.104       1.92203   search
+    7       0.0943431        1.9472      0.105657       1.91694   search
+    9           0.092       1.95225         0.108       1.90932   search
+   11       0.0886863       1.95877      0.111314       1.89767   search
+   13           0.084       1.96682         0.116       1.87932   search
+   15       0.0773726       1.97611      0.122627       1.84928   search
+   17           0.068       1.98575         0.132       1.79764   search
+   19       0.0547452       1.99401      0.145255       1.70328   search
+   21           0.036       1.99888         0.164        1.5178   search
+   23      0.00949033       1.99999       0.19051       1.12187   search
+   25          -0.028       1.99959         0.228      0.198105   search
+   27      -0.0810193       1.97128      0.281019      -2.16087   search
+
+Search for a zero in the interval [-0.0810193, 0.281019]:
+ Func-count    x          f(x)             Procedure
+   27      -0.0810193       1.97128        initial
+   28       0.0916948       1.95288        interpolation
+   29        0.186357       1.19598        bisection
+   30        0.233688     0.0113561        bisection
+   31        0.234068   -0.00162468        interpolation
+   32        0.234021   3.47205e-06        interpolation
+   33        0.234021   1.05803e-09        interpolation
+   34        0.234021   5.77316e-15        interpolation
+   35        0.234021  -4.44089e-15        interpolation
+
+Zero found in the interval [-0.0810193, 0.281019]

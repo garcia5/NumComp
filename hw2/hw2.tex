@@ -15,8 +15,12 @@
 \def\AND{\wedge}
 \def\imp{\rightarrow}
 
-
 \begin{document}
+
+% Make inline code/text look pretty
+\lstset{stringstyle=\ttfamily,
+	showstringspaces=false,
+	basicstyle=\small}
 
 \begin{center} Alexander Garcia \hfill June 5, 2017 \\ Assignment-2 \end{center}
 
@@ -287,17 +291,22 @@
 
 			$$\overline{x} = 0.6367$$
 
-			\begin{figure}[H]
-				\centering
-				\includegraphics[width=0.4\textwidth]{q2_fundef.PNG}
-				\caption{Definition of $f(x)$ and $f'(x)$}
-			\end{figure}
+			\begin{center}
+				Definition of $f(x)$ and $f'(x)$
+			\end{center}
 
-			\begin{figure}[H]
-				\centering
-				\includegraphics[width=\textwidth]{q2_newtonscript.PNG}
-				\caption{Script used to calculate $\overline{x}$}
-			\end{figure}
+			\begin{verbatim}
+			% Definitions of f(x) and f'(x)
+			y = sin9x)+x.^2-1;
+			yp = cos(x)+2*x;
+			\end{verbatim} \
+
+			\begin{center}
+				Script used to calculate $\overline{x}$
+			\end{center}
+
+			\lstinputlisting{Newton.m}
+
 
 			\begin{figure}[H]
 				\centering
@@ -473,7 +482,109 @@
 		 and a final outlier value. This makes the thrid root's convergance quadratic as well. \\
 
 	\end{enumerate}
+\item Consider the equation
+	$$f(\beta_n) = 1 + \frac{1}{cosh\beta_n+cos\beta_n} -\alpha\beta_n(tan\beta_n-tanh\beta_n)=0$$
+
+	\begin{enumerate}[(a)]
+		\item The below text shows the output of the \texttt{rootfinder.m} script. \texttt{rootfinder.m} calls the built in
+			MATLAB routine \texttt{fzero}, and supplies it with the function and initial guess. Options are enabled to print
+			out the steps taken by \texttt{fzero}.
+			To summarize, the roots calculated for the various $\alpha$ are as follows:
+
+			\begin{tabular}{ll}
+				$\alpha = 0.1$ & $x = 1.72274$ \\
+
+				$\alpha = 1$ & $x = 1.24792$ \\
+
+				$\alpha = 10$ & $x = 0.735782$ \\
+
+				$\alpha = 100$ & $x = 0.415934$ \\
+
+				$\alpha = 1000$ & $x = 0.234021$ \\
+			\end{tabular}
+
+			\newpage
+			\begin{center}
+				\texttt{rootfinder.m} script used to calculate roots
+			\end{center}
+
+			\begin{verbatim}
+			% Script to find natural frequencies of beam oscillation
+			% Calculate zeroes using 'fzero' routine
+
+			fprintf('Searching for lowest root of a=0.1');
+			a0 = 0.1;                               % alpha value
+			x0 = 1.75;                              % initial guess
+			y = fb(a0);                             % define function
+			fzero(y,x0,optimset('Display','Iter')); % display MATLAB process
+
+			fprintf('\nSearching for lowest root of a=1');
+			a1 = 1;                                 % alpha value
+			x1 = 1;                                 % initial guess
+			y = fb(a1);                             % define function
+			fzero(y,x1,optimset('Display','Iter')); % display MATLAB process
+
+			fprintf('\nSearching for lowest root of a=10');
+			a2 = 10;                                % alpha value
+			x2 = 1;                                 % initial guess
+			y = fb(a2);                             % define function
+			fzero(y,x2,optimset('Display','Iter')); % display MATLAB process
+
+			fprintf('\nSearching for lowest root of a=100');
+			a3 = 100;                               % alpha value
+			x3 = 1;                                 % initial guess
+			y = fb(a3);                             % define function
+			fzero(y,x3,optimset('Display','Iter')); % display MATLAB process
+
+			fprintf('\nSearching for lowest root of a=1000');
+			a4 = 1000;                              % alpha value
+			x4 = 0.1;                               % initial guess
+			y = fb(a4);                             % define function
+			fzero(y,x4,optimset('Display','Iter')); % display MATLAB process
+			\end{verbatim} \
+
+			\begin{center}
+				Definition of function $f(x)$
+			\end{center}
+
+			\begin{verbatim}
+			% Definition of the function
+			function y = fb(a)
+			y = @(x) 1+(1./(cosh(x).*cos(x)))-a.*x.*(tan(x)-tanh(x));
+			\end{verbatim} \
+
+			\newpage
+			\begin{center}
+				Output of \texttt{rootfinder.m} script
+			\end{center}
+
+			\lstinputlisting{q4.txt} \
+
+			\newpage
+		\item The following graph displays the results of the lowest zero ($\beta_1$) on a logrithmic scale in termsof $\alpha$
+
+			\begin{figure}[H]
+				\center
+				\includegraphics[width=0.8\textwidth]{semilogx.png}
+				\caption{Graph of $\beta_1$ vs. $\alpha$}
+			\end{figure}
+
+
+	\end{enumerate}
 \end{enumerate}
+
+\newpage
+
+\begin{center} Additional MATLAB code \end{center}
+
+Question 1 (h):
+\lstinputlisting{q1_bisect.m} \
+
+Question 2 (a):
+\lstinputlisting{q2.m} \
+
+Question 2 (c):
+\lstinputlisting{q2_derivs.m}
 
 \end{document}
 
