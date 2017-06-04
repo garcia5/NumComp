@@ -129,6 +129,15 @@ INPUT ./q2_graph.png
 INPUT q2_derivgraph.png
 INPUT ./q2_derivgraph.png
 INPUT ./q2_derivgraph.png
+INPUT q2_fundef.PNG
+INPUT ./q2_fundef.PNG
+INPUT ./q2_fundef.PNG
+INPUT q2_newtonscript.PNG
+INPUT ./q2_newtonscript.PNG
+INPUT ./q2_newtonscript.PNG
+INPUT q2_out.PNG
+INPUT ./q2_out.PNG
+INPUT ./q2_out.PNG
 INPUT hw2.aux
 INPUT /usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb
 INPUT /usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb

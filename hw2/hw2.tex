@@ -270,8 +270,42 @@
 		\item The general form for the secant method is
 			$$x_{n+2} = x_{n} - \frac{f(x_n)(x_{n+1}-x_n)}{f(x_{n+1})-f(x_n)} = x_n - \frac{f(x_n)}{m_n} $$
 
-			A good choice for starting points $x_0, x_1$ would be points such that the secant line approaches
+			A good choice for starting points $x_0, x_1$ would be points close to the true root of $f(x)$ which will lead the
+			algorithm to convergance.
+
+			More formally, let us let $f(\overline{x})=0$. If $f(x)$ is twice differentiable in
+			$a < \overline{x} < b$ and $f^{'}(x) \neq 0$ in $(a,b)$, then any $x_0, x_1$ chosen close to $\overline{x}$ will
+			converge to $\overline{x}$ through the secant method. \\
+
+			As the root of this function is $0 < \overline{x} < 1$, we can choose $x_0 = 1, x_1 = 0$.
+			$$x_2 = 1 - \frac{f(1)(0-1)}{f(0)-f(1)} = 1- \frac{-sin(1)}{-1-sin(1)} \approx 0.54304$$
+
+		\item In order to compute the exact solution to the equation, I used a MATLAB script defining Newton's Method. I chose this
+			method as it converges the fastest out of the three algorithms, and only requires a single starting guess. For error,
+			I used $10^{-15}$ as the stopping criteria. All credit for the MATLAB script goes to professor Kapila.
+
+			$$\overline{x} = 0.6367$$
+
+			\begin{figure}[H]
+				\centering
+				\includegraphics[width=0.4\textwidth]{q2_fundef.PNG}
+				\caption{Definition of $f(x)$ and $f'(x)$}
+			\end{figure}
+
+			\begin{figure}[H]
+				\centering
+				\includegraphics[width=\textwidth]{q2_newtonscript.PNG}
+				\caption{Script used to calculate $\overline{x}$}
+			\end{figure}
+
+			\begin{figure}[H]
+				\centering
+				\includegraphics[width=0.8\textwidth]{q2_out.PNG}
+				\caption{Printed output of script in Figure 5}
+			\end{figure}
 	\end{enumerate}
+
+\item
 \end{enumerate}
 
 \end{document}
