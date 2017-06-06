@@ -1,0 +1,69 @@
+\documentclass[11pt]{article}
+\usepackage{color, array, graphics}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{enumerate}
+\usepackage{mathtools}
+\usepackage{fullpage}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{listings}
+\usepackage[utf8]{inputenc}
+
+\begin{document}
+\lstset{stringstyle=\ttfamily,
+	showstringspaces=false,
+	basicstyle=\small}
+
+\begin{center} Alexander Garcia \hfill June 12, 2017 \\ Assignment-3 \end{center}
+
+\medskip
+
+\begin{enumerate}
+
+	\item
+	\begin{enumerate}[(a)]
+
+		\item \textbf{False}.
+
+		Because $\mathbf{A}$ is nonsingular, there are a number of properties that are associated with it. One of these is the fact that $\mathbf{A}$ being
+		singular implies that $\mathbf{Ax = b}$ has a unique solution for all $\mathbf{b}$. Likewise if $\mathbf{b = 0}$, then $\mathbf{x}$ is necessarily the 0
+		vector.
+
+		This question was done assuming that $\mathbf{A}=n\times n \rightarrow \mathbf{b}=1\times n$. If $\mathbf{b}$ is of size $m<n$, then $\mathbf{Ax=b}$ has
+		an infinity of solutions. However, this does not depend on the contents of $\mathbf{b}$, but rather the initial parameters of the problem.
+
+		\item \textbf{False}.
+
+		This can be proven false simply by taking the determinant of a $3\times 3$ matrix.
+		$$det(\mathbf{A}) = a_{11}(a_{22}a_{33} + a_{23}a_{32}) - a_{12}(a_{21}a_{33} + a_{23}a_{31}) + a_{13}(a_{21}a_{32} + a_{22}a_{31})$$
+
+		As there are terms in this equation that are not dependant on $a_{ii}$, a matrix with a zero on the principle diagonal is not necessarily singular.\\
+
+		\item \textbf{False}.
+
+		The conditioning of a matrix $\mathbf{A}$ is related to the largest sum of a single column (the 1-norm). The partial pivoting algorithm scans the rest of the
+		column below the current pivot point $(a_{kk})$ for the largest value.
+
+		A well-conditioned matrix would simply have small column sums, which does not necessarily affect the location of the largest values in each row, which in turn
+		does not affect the need for partial pivoting. \\
+
+		\item \textbf{True}.
+
+		By definition, the condition number of a matrix $\mathbf{A = ||A||\ ||A^{-1}||}$. Therefore, the condition number of
+		$\mathbf{A^{-1} = ||A^{-1}||\ ||(A^{-1})^{-1}|| = ||A^{-1}||\ ||A||}$. As $||A||,\ ||A^{-1}||$ is a scalar value, the two products are the same.
+
+		\item \textbf{False}.
+
+		When working with a linear system, the solution to the system is the point at which every line defined by matrix $\mathbf{A}$ intersects. If there is no
+		point where every line intersects, then there are no solutions. Because the system is
+		linear, two lines can have only one discreet intersection. Therefore, it is not possible for 2 (or more) lines to intersect at more than one point, so there
+		must be either exactly 1 solution, or infinitely many solutions. \\
+
+	\item
+
+	\end{enumerate}
+
+\end{enumerate}
+
+\end{document}
