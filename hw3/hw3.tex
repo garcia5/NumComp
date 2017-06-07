@@ -51,7 +51,7 @@
 		\item \textbf{True}.
 
 		By definition, the condition number of a matrix $\mathbf{A = ||A||\ ||A^{-1}||}$. Therefore, the condition number of
-		$\mathbf{A^{-1} = ||A^{-1}||\ ||(A^{-1})^{-1}|| = ||A^{-1}||\ ||A||}$. As $||A||,\ ||A^{-1}||$ a scalar values, the two products are the same.
+		$\mathbf{A^{-1} = ||A^{-1}||\ ||(A^{-1})^{-1}|| = ||A^{-1}||\ ||A||}$. As $||A||,\ ||A^{-1}||$ are scalar values, the two products are the same.
 
 		\item \textbf{False}.
 
@@ -60,9 +60,107 @@
 		linear, two lines can have only one discreet intersection. Therefore, it is not possible for 2 (or more) lines to intersect at more than one point, so there
 		must be either exactly 1 solution, or infinitely many solutions. \\
 
-	\item
+		\item One of the reasons pivoting is essential in the G.E. method of solving matrices is to avoid potential zeroes on the principle
+		diagonal. When the G.E. is being done, each element on the principle diagonal determines the multiplier for the rows below. $m_{ij}
+		= \frac{a_{ij}}{a_{jj}}$. Since the diagonal element is in the denominator, it must be nonzero. This is a mathematical reason for
+		pivoting.
+
+		The other reason is a numerical one. If the current pivot point is $a_{jj}$, and this value is very small $(10^{-16})$, then the
+		multiplier that results will be extremely large. If the values in column $j$ are then relatively small to $a_{jj}$, the subtraction
+		will result in a loss of significance, due to not being able to express numbers such as $10^{16}-1$ accurately. Partial pivoting moves
+		the row with the largest $j^{th}$ element to the current row, then computes the multiplier. This avoids the large multiplier result,
+		and will aid in maintaining significance. \\
+
+		\item The condition number is a nontrivial computation due to the computation of the norms that make up the number. In order
+		compute the 1-norm, which is common, the algorithm must sum every column, the largest of which becomes the condition number.
+		This alone requires $O(n^2)$ operations. The algorithm must then compute the inverse of $\mathbf{A}$, which is an even more
+		expensive operation. More curcially, the inverse of matrix $\mathbf{A}$ must be completely recomputed if $\mathbf{A}$ is even
+		slightly modified. \\
+
+		\item On its own, the relative residual does not carry much weight. A small residual would, at firs glance, seem to imply low
+		error, and therefore higher accuracy. However, this is not the case, and it turns out that the condition number of a matrix is
+		directly involved in the accuracy of the solution. In order for a solution to be accurate, the solution should not only have
+		a small relative residual, but should also be moderately well conditioned. \\
+
+		\item
+			\begin{enumerate}[i.]
+
+				\item $det(\mathbf{cA}) = c^n*det(\mathbf{A})$
+
+				In this case, $\mathbf{A}$ would be an $n\times n$ diagonal matrix, with every diagonal entry = 1, and $c =
+				\frac{1}{2}$. The determinant of a diagonal matrix with every diagonal value = 1 is simply the identity matrix
+				, and $det(\mathbf{I})$ is 1. Therefore, the determinant of the matrix $\frac{1}{2}\mathbf{I} =
+				\frac{1}{2}^n$. \\
+
+				\item Assume the use of the 1-norm
+
+				$||\mathbf{A}||_1 = \frac{1}{2}$
+
+				Because the inverse of a diagonal matrix is found by simply inverting all diagonal elements, $||\mathbf{A}^{-1}
+				||_1 = 2$
+
+				$ K(\mathbf{A}) = ||\mathbf{A}||_1 * ||\mathbf{A^{-1}}||_1 = 1$ \\
+
+				\item Any scalar multiple of the identity matrix will not amplify input errors. This makes intuitive sense, as
+				the condition number of a matrix sets an upper bound on the maximum distortion of the result due to input
+				errors. Because each element in the system $(x_1, x_2, \dots, x_n)$ only appears once in $\mathbf{A}$,
+				each entry simply takes the corresponding $\mathbf{b}$ value $(a_1 = b_1, a_2 = b_2, \dots, a_n = b_n)$.
+				Any error that is present in the input will be directly translate to the output. \\
+
+			\end{enumerate}
 
 	\end{enumerate}
+
+	\newpage
+
+	\item
+		\begin{enumerate}[(a)]
+
+			\item
+			\[
+				\begin{bmatrix}
+					1 & 2 \\
+					2 & 4.01
+				\end{bmatrix}
+				\begin{bmatrix}
+					x_1 \\
+					x_2
+				\end{bmatrix}
+				=
+				\begin{bmatrix}
+					3 \\
+					6.01
+				\end{bmatrix}
+			\]
+
+			$x_1 = 3-2x_2$
+
+			$2(3-2x_2) + 4.01x_2 = 6.01$
+
+			$6 + 0.01x_2 = 6.01$
+
+			$0.01x_2 = 0.01$
+
+			$x_2 = 1$
+
+			$x_1 = 1$ \\
+
+			\item
+
+			\[
+				\begin{bmatrix}
+					1 & 2 \\
+					2 & 4.01
+				\end{bmatrix}
+				\begin{bmatrix}
+					300 \\
+					601
+				\end{bmatrix}
+				=
+			\]
+
+		\end{enumerate}
+
 
 \end{enumerate}
 
