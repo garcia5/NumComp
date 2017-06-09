@@ -31,7 +31,7 @@
 		vector.
 
 		This question was done assuming that $\mathbf{A}=n\times n \rightarrow \mathbf{b}=1\times n$. If $\mathbf{b}$ is of size $m<n$, then $\mathbf{Ax=b}$ has
-		an infinity of solutions. However, this does not depend on the contents of $\mathbf{b}$, but rather the initial parameters of the problem.
+		an infinity of solutions. However, this does not depend on the contents of $\mathbf{b}$, but rather the initial parameters of the problem. \\
 
 		\item \textbf{False}.
 
@@ -51,7 +51,7 @@
 		\item \textbf{True}.
 
 		By definition, the condition number of a matrix $\mathbf{A = ||A||\ ||A^{-1}||}$. Therefore, the condition number of
-		$\mathbf{A^{-1} = ||A^{-1}||\ ||(A^{-1})^{-1}|| = ||A^{-1}||\ ||A||}$. As $||A||,\ ||A^{-1}||$ are scalar values, the two products are the same.
+		$\mathbf{A^{-1} = ||A^{-1}||\ ||(A^{-1})^{-1}|| = ||A^{-1}||\ ||A||}$. As $||A||,\ ||A^{-1}||$ are scalar values, the two products are the same. \\
 
 		\item \textbf{False}.
 
@@ -153,11 +153,74 @@
 					2 & 4.01
 				\end{bmatrix}
 				\begin{bmatrix}
-					300 \\
-					601
+					-600 \\
+					301
 				\end{bmatrix}
 				=
+				\begin{bmatrix}
+					2 \\
+					7.1
+				\end{bmatrix}
 			\]
+
+			Here,
+
+			\[
+				x^* =
+				\begin{bmatrix}
+					-600 \\
+					301
+				\end{bmatrix}
+			\]
+			and
+			\[
+				b^* =
+				\begin{bmatrix}
+					2 \\
+					7.1
+				\end{bmatrix}
+			\]
+
+			The relative forward error is defined by $\frac{||\mathbf{x^*}||_{\infty}}{||\mathbf{x}||_{\infty}}$, while the
+			relative backward error
+			is $\frac{||\mathbf{b^*}||_{\infty}}{||\mathbf{b}||_{\infty}}$. \\
+
+			\begin{tabular}{ll}
+				Relative Forward Error & Relative Backward Error \\
+				\hline
+				$||\mathbf{x^*}|| = 600$ & $||\mathbf{b^*}|| = 7.1$ \\
+
+				$||\mathbf{x}|| = 1$ & $||\mathbf{b}|| = 6.01$ \\
+
+				$\frac{600}{1} = 600$ & $\frac{7.1}{6.01} \approx 1.18\dots$ \\
+
+			\end{tabular} \\
+
+			The error magnification factor is (relative forwards error $\div$ relative backwards error).
+
+			$E_m = 600 \div \frac{7.1}{6.01} \approx 507.89\dots$ \\
+
+			\item $K(\mathbf{A}) = ||\mathbf{A}||\ ||\mathbf{A^{-1}}||$
+
+			$||\mathbf{A}|| = 6.01$
+
+			\[
+				\mathbf{A^{-1}} =
+				\frac{1}{0.01}
+				\begin{bmatrix}
+					4.01 & -2 \\
+					-2 & 1
+				\end{bmatrix}
+			\]
+
+			$||\mathbf{A^{-1}}|| = 201$
+
+			$$K(\mathbf{A}) = 201*6.01 = 1208.01$$
+
+			The poor conditioning of the number is a clear indication that a small change to the data will cause a large change in
+			the result. In this case, the altered data that gave rise to the vector $\mathbf{x^*}$ was $\mathbf{b^*}$. The large
+			condition number sets the upper bound on the relative output error, meaning that $\mathbf{x^*}$ can grow extremely
+			large, without producing extremely different results in $\mathbf{b^*}$.
 
 		\end{enumerate}
 
