@@ -224,6 +224,287 @@
 
 		\end{enumerate}
 
+	\item
+
+		\begin{enumerate}[(a)]
+
+			\item Begin with the augementd matrix $\mathbf{A|b}$
+
+				\[
+					\mathbf{A|b} =
+					\begin{bmatrix}
+						1 & 2 & 3 & 4 & -6 \\
+						2 & 3 & 7 & 9 & -17 \\
+						-2& -6 & -2 & -4 & -4 \\
+						1 & 0 & 11 & 15 & -34
+					\end{bmatrix}
+				\]
+
+				\textbf{Step 1:} Pivot point $a_{11}$
+
+				First, we must employ partial pivoting to ensure there are no multipliers $>$ 1. We see that row 2 has the
+				largest value in column 1, so we use this as the first fow instead. The permutation matrix associated with
+				swapping rows $R1$ and $R2$ is
+				\[
+					\mathbf{P} =
+					\begin{bmatrix}
+						0 & 1 & 0 & 0 \\
+						1 & 0 & 0 & 0 \\
+						0 & 0 & 1 & 0 \\
+						0 & 0 & 0 & 1
+					\end{bmatrix}
+				\]
+
+				and the matrix we are now operating on is
+				\[
+					\mathbf{A}
+					\begin{bmatrix}
+						2 & 3 & 7 & 9 & -17 \\
+						1 & 2 & 3 & 4 & -6 \\
+						-2& -6 & -2 & -4 & -4 \\
+						1 & 0 & 11 & 15 & -34
+					\end{bmatrix}
+				\]
+
+				We now calculate the multipliers needed to zero out the first column.
+
+				\begin{center}
+				\begin{tabular}{c||c||c}
+
+					$m_{21} = \frac{a_{21}}{a_{11}} = 0.5$ &
+					$m_{31} = \frac{a_{31}}{a_{11}} = -1$ &
+					$m_{41} = \frac{a_{41}}{a_{11}} = 0.5$ \\
+				\end{tabular} \\
+				\end{center}
+
+				Then, carry out the row operations on $R2, R3, R4$.
+
+				\begin{center}
+				\begin{tabular}{c||c||c}
+
+					$R2 \to R2 - m_{21}R1$ &
+					$R3 \to R3 - m_{31}R1$ &
+					$R4 \to R4 - m_{41}R1$ \\
+				\end{tabular} \\
+				\end{center}
+
+				The new matrix generatred after these operations is
+
+				\[
+					\mathbf{A}=
+					\begin{bmatrix}
+						2 & 3 & 7 & 9 & -17 \\
+						(0.5) & 0.5 & -0.5 & -0.5 & -2.5 \\
+						(-1) & -3 & -5 & 5 & -21 \\
+						(0.5) & -1.5 & 7.5 & 10.5 & -25.5
+					\end{bmatrix}
+				\]
+
+				where the normal zeros are replaced by the multipliers. \\
+
+				\textbf{Step 2:} Pivot point $a_{22}$
+
+				Again, start by swapping rows according to partial pivoting. This includes changing the positions of the
+				multipliers, although their values will not be affected by the row operations that follow. It also includes
+				swapping the corresonding rows in the permutation matrix. In this case, we swap rows $R2$ and $R3$
+
+				\[
+					\mathbf{A} =
+					\begin{bmatrix}
+						2 & 3 & 7 & 9 & -17 \\
+						(-1) & -3 & -5 & 5 & -21 \\
+						(0.5) & 0.5 & -0.5 & -0.5 & -2.5 \\
+						(0.5) & -1.5 & 7.5 & 10.5 & -25.5
+					\end{bmatrix}
+				\]
+				and
+				\[
+					\mathbf{P} =
+					\begin{bmatrix}
+						0 & 1 & 0 & 0 \\
+						0 & 0 & 1 & 0 \\
+						1 & 0 & 0 & 0 \\
+						0 & 0 & 0 & 1
+					\end{bmatrix}
+				\]
+
+				Next, calculate the new multipliers. In this step there are only two, as the only rows that need have items
+				zeroed out are $R3$ and $R4$
+
+				\begin{center}
+				\begin{tabular}{c||c}
+
+					$m_{32} = \frac{a_{32}}{a_{22}} = -\frac{1}{6}$ &
+					$m_{42} = \frac{a_{42}}{a_{22}} = 0.5$ \\
+				\end{tabular} \\
+				\end{center}
+
+				Next, perform the row operations on $R3, R4$
+
+				\begin{center}
+				\begin{tabular}{c||c}
+
+					$R3 \to R3 - m_{32}R2$ &
+					$R4 \to R4 - m_{42}R2$ \\
+				\end{tabular} \\
+				\end{center}
+
+				The new matrix is
+
+				\[
+					\mathbf{A}=
+					\begin{bmatrix}
+						2 & 3 & 7 & 9 & -17 \\
+						(-1) & -3 & -5 & 5 & -21 \\
+						(0.5) & (-\frac{1}{6}) & \frac{1}{3} & \frac{1}{3} & -6 \\
+						(0.5) & (0.5) & 5 & 8 & 36
+					\end{bmatrix}
+				\]
+
+				again, with the normal zeros replaced by the multipliers. \\
+
+				\textbf{Step 3:} Pivot point $a_{33}$
+
+				In this case, we have to switch $R3$ and $R4$ in $\mathbf{A}$ and $\mathbf{P}$ according to partial pivoting.
+
+				\[
+					\mathbf{A}=
+					\begin{bmatrix}
+						2 & 3 & 7 & 9 & -17 \\
+						(-1) & -3 & -5 & 5 & -21 \\
+						(0.5) & (0.5) & 5 & 8 & 36 \\
+						(0.5) & (-\frac{1}{6}) & \frac{1}{3} & \frac{1}{3} & -6 \\
+					\end{bmatrix}
+				\]
+
+				and
+
+				\[
+					\mathbf{P} =
+					\begin{bmatrix}
+						0 & 1 & 0 & 0 \\
+						0 & 0 & 1 & 0 \\
+						0 & 0 & 0 & 1 \\
+						1 & 0 & 0 & 0 \\
+					\end{bmatrix}
+				\]
+
+				The only multiplier to be calculated is $m_{43}$
+				\begin{center}
+					$m_{43} = \frac{a_{43}}{a_{33}} = \frac{1}{15}$
+				\end{center}
+
+				and the only row operation to be performed is
+				\begin{center}
+					$R4 \to R4 - m_{43}R3$
+				\end{center}
+
+				The final matrix is
+
+				\[
+					\mathbf{A}=
+					\begin{bmatrix}
+						2 & 3 & 7 & 9 & -17 \\
+						(-1) & -3 & -5 & 5 & -21 \\
+						(0.5) & (0.5) & 5 & 8 & 36 \\
+						(0.5) & (-\frac{1}{6}) & (\frac{1}{15}) & -0.2 & -8.4 \\
+					\end{bmatrix}
+				\] \\
+
+				From here, we can extract both the lower and upper triangular matrices $\mathbf{L, U}$ respectively.
+
+				\[
+					\mathbf{L}=
+					\begin{bmatrix}
+						1 & 0 & 0 & 0 \\
+						-1 & 1 & 0 & 0 \\
+						0.5 & 0.5 & 1 & 0 \\
+						0.5 & -\frac{1}{6} & \frac{1}{15} & 1 \\
+					\end{bmatrix}
+					\mathbf{U}=
+					\begin{bmatrix}
+						2 & 3 & 7 & 9 \\
+						0 & -3 & 5 & 5 \\
+						0 & 0 & 5 & 8 \\
+						0 & 0 & 0 & -0.2 \\
+					\end{bmatrix}
+					\mathbf{P}=
+					\begin{bmatrix}
+						0 & 1 & 0 & 0 \\
+						0 & 0 & 1 & 0 \\
+						0 & 0 & 0 & 1 \\
+						1 & 0 & 0 & 0 \\
+					\end{bmatrix}
+				\] \\
+
+			\item When checked in MATLAB, the results of the hand calculation agree with the computed result.
+
+				\begin{center}
+					\texttt{lup\_check.m} script used to generate matrices.
+				\end{center}
+				\lstinputlisting{lup_check.m}
+
+				\begin{center}
+					Output of \texttt{lup\_check.m}
+				\end{center}
+				\lstinputlisting{lup_check.txt} \
+
+			\item If the decomposition is correct, $\mathbf{LU == AP}$
+
+				\[
+					\mathbf{LU}=
+					\begin{bmatrix}
+						L_{11}U_{11} & L_{11}U_{12} & L_{11}U_{13} & L_{11}U_{14} \\
+						L_{21}U_{11} & L_{21}U_{12} + L_{22}U_{22} & L_{21}U_{13} + L_{22}U_{23} &
+						L_{21}U_{14} + L_{22}U_{24} \\
+						L_{31}U_{11} & L_{31}U_{12} + L_{32}U_{22} & L_{31}U_{13} + L_{32}U_{23} + L_{33}U_{33} &
+						L_{31}U_{14} + L_{32}U_{24} + L_{33}U_{34} \\
+						L_{41}U_{11} & L_{41}U_{12} + L_{42}U_{22} & L_{41}U_{13} + L_{42}U_{23} + L_{43}U_{33} &
+						L_{41}U_{14} + L_{42}U_{24} + L_{43}U_{34} + L_{44}U_{44} \\
+					\end{bmatrix}
+				\]
+
+				\[
+					=
+					\begin{bmatrix}
+						2 & 3 & 7 & 9 \\
+						-2 & (-3-3) & (-7+5) & (-9+5) \\
+						1 & (1.5-1.5) & (3.5 + 2.5 + 5) & (4.5 + 2.5 + 8) \\
+						1 & (1.5 + 0.5) & (3.5 - \frac{5}{6} + \frac{1}{3}) & (4.5 - \frac{5}{6} + \frac{8}{15} -0.2)\\
+					\end{bmatrix}
+				\]
+
+				\[
+					=
+					\begin{bmatrix}
+						2 & 3 & 7 & 9 \\
+						-2 & -6 & -2 & -4 \\
+						1 & 0 & 11 & 15 \\
+						1 & 2 & 3 & 4 \\
+					\end{bmatrix}
+				\] \\
+
+				The product $\mathbf{AP}$ can be found analytically by taking the row operations needed to convert the identity
+				matrix $\mathbf{I}$ into $\mathbf{P}$, and applying them to $\mathbf{A}$.
+
+				$\mathbf{P} = (R1_I \leftrightarrow R2_I) \to (R2_I \leftrightarrow R3_I) \to (R3_I \leftrightarrow R4_I)$
+
+				Performing the same operations on $\mathbf{A}$ yields
+
+				\[
+					\mathbf{AP}=
+					\begin{bmatrix}
+						2 & 3 & 7 & 9 \\
+						-2 & -6 & -2 & -4 \\
+						1 & 0 & 11 & 15 \\
+						1 & 2 & 3 & 4 \\
+					\end{bmatrix}
+				\]
+
+				The two matrices are equal, and there is no residual. \\
+
+		\end{enumerate}
+
 
 \end{enumerate}
 
