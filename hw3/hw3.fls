@@ -146,6 +146,17 @@ INPUT /usr/share/texlive/texmf-dist/tex/latex/base/omscmr.fd
 INPUT lup_check.txt
 INPUT lup_check.txt
 INPUT lup_check.txt
+INPUT myA.m
+INPUT myA.m
+INPUT myA.m
+INPUT runmyA.m
+INPUT runmyA.m
+INPUT runmyA.m
+INPUT /usr/share/texlive/texmf-dist/tex/latex/base/omlcmr.fd
+INPUT /usr/share/texlive/texmf-dist/tex/latex/base/omlcmr.fd
+INPUT myA.txt
+INPUT myA.txt
+INPUT myA.txt
 INPUT hw3.aux
 INPUT /usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb
 INPUT /usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx8.pfb

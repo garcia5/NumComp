@@ -1,0 +1,247 @@
+n = 5
+computed solution
+    1.0000
+    1.0000
+    1.0000
+    1.0000
+    1.0000
+
+residual norm  error norm     K(A)           relative residual  upper error bound
+8.88178e-16    2.75980e-11    1.97907e+06    1.55593e-16        3.07930e-10     
+relative error
+2.75980e-11
+
+n = 6
+computed solution
+    1.0000
+    1.0000
+    1.0000
+    1.0000
+    1.0000
+    1.0000
+
+residual norm  error norm     K(A)           relative residual  upper error bound
+8.88178e-16    8.66516e-11    7.03420e+07    1.45009e-16        1.02002e-08     
+relative error
+8.66516e-11
+
+n = 7
+computed solution
+    1.0000
+    1.0000
+    1.0000
+    1.0000
+    1.0000
+    1.0000
+    1.0000
+
+residual norm  error norm     K(A)           relative residual  upper error bound
+8.88178e-16    2.57584e-08    2.44925e+09    1.37019e-16        3.35594e-07     
+relative error
+2.57584e-08
+
+n = 8
+computed solution
+    1.0000
+    1.0000
+    1.0000
+    1.0000
+    1.0000
+    1.0000
+    1.0000
+    1.0000
+
+residual norm  error norm     K(A)           relative residual  upper error bound
+4.44089e-16    1.39412e-07    9.72859e+10    6.53587e-17        6.35848e-06     
+relative error
+1.39412e-07
+
+n = 9
+computed solution
+    1.0000
+    1.0000
+    1.0000
+    1.0000
+    1.0000
+    1.0000
+    1.0000
+    1.0000
+    1.0000
+
+residual norm  error norm     K(A)           relative residual  upper error bound
+8.88178e-16    3.42030e-05    3.65077e+12    1.25580e-16        4.58464e-04     
+relative error
+3.42021e-05
+
+n = 10
+computed solution
+    1.0000
+    1.0000
+    1.0000
+    1.0000
+    0.9999
+    1.0004
+    0.9992
+    1.0009
+    0.9995
+    1.0001
+
+residual norm  error norm     K(A)           relative residual  upper error bound
+1.77636e-15    9.10138e-04    1.31367e+14    2.42371e-16        3.18397e-02     
+relative error
+9.09311e-04
+
+n = 11
+computed solution
+    1.0000
+    1.0000
+    1.0000
+    1.0004
+    0.9964
+    1.0162
+    0.9570
+    1.0693
+    0.9337
+    1.0346
+    0.9924
+
+residual norm  error norm     K(A)           relative residual  upper error bound
+8.88178e-16    6.93016e-02    4.80162e+15    1.10020e-16        5.28273e-01     
+relative error
+6.48101e-02
+
+n = 12
+computed solution
+    1.0000
+    1.0000
+    0.9998
+    1.0039
+    0.9601
+    1.2285
+    0.2077
+    2.7222
+   -1.3593
+    2.9761
+    0.0764
+    1.1844
+
+residual norm  error norm     K(A)           relative residual  upper error bound
+1.77636e-15    2.35928e+00    1.91125e+17    7.69365e-17        1.47045e+01     
+relative error
+7.92745e-01
+
+n = 13
+computed solution
+    1.0000
+    1.0000
+    1.0002
+    0.9961
+    1.0461
+    0.6916
+    2.2721
+   -2.3804
+    6.8928
+   -5.6958
+    5.7738
+   -0.9384
+    1.3419
+
+residual norm  error norm     K(A)           relative residual  upper error bound
+8.88178e-16    6.69576e+00    8.65998e+17    1.62077e-17        1.40358e+01     
+relative error
+9.71419e-01
+
+n = 14
+computed solution
+    1.0000
+    1.0000
+    1.0007
+    0.9829
+    1.1976
+   -0.2557
+    5.6692
+   -9.1271
+   12.1257
+    0.8049
+  -14.8577
+   21.1347
+  -10.0368
+    3.3615
+
+residual norm  error norm     K(A)           relative residual  upper error bound
+1.77636e-15    2.01347e+01    3.41375e+18    1.03396e-17        3.52968e+01     
+relative error
+9.52684e-01
+
+n = 15
+computed solution
+    1.0000
+    1.0000
+    1.0005
+    0.9891
+    1.1084
+    0.4433
+    2.4592
+   -0.4353
+   -0.2028
+    2.5544
+   10.9906
+  -26.7285
+   31.7774
+  -15.4747
+    4.5184
+
+residual norm  error norm     K(A)           relative residual  upper error bound
+1.33227e-15    3.07774e+01    1.50673e+18    5.05391e-18        7.61488e+00     
+relative error
+9.68531e-01
+
+n = 16
+computed solution
+    1.0000
+    1.0000
+    0.9988
+    1.0307
+    0.6059
+    3.7977
+  -10.6929
+   29.8327
+  -36.6665
+   11.3318
+   38.5622
+  -38.3413
+  -15.5495
+   54.5971
+  -34.7402
+    9.2333
+
+residual norm  error norm     K(A)           relative residual  upper error bound
+2.66454e-15    5.35971e+01    3.72142e+18    5.77433e-18        2.14887e+01     
+relative error
+9.81684e-01
+
+n = 17
+computed solution
+    1.0000
+    1.0000
+    1.0005
+    0.9880
+    1.1435
+    0.0684
+    4.4167
+   -5.5352
+    3.8331
+   14.7443
+  -25.8951
+    9.6909
+   31.4856
+  -45.1613
+   29.2959
+   -6.6839
+    1.6085
+
+residual norm  error norm     K(A)           relative residual  upper error bound
+1.77636e-15    4.61613e+01    2.61016e+18    4.57427e-18        1.19396e+01     
+relative error
+1.02214e+00
+Error has exceeded 100%.
