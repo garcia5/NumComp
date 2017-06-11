@@ -26,12 +26,12 @@
 
 		\item \textbf{False}.
 
-		Because $\mathbf{A}$ is nonsingular, there are a number of properties that are associated with it. One of these is the fact that $\mathbf{A}$ being
-		singular implies that $\mathbf{Ax = b}$ has a unique solution for all $\mathbf{b}$. Likewise if $\mathbf{b = 0}$, then $\mathbf{x}$ is necessarily the 0
+		Because $\mathbf{A}$ is nonsingular, there are a number of properties that are associated with it. One of these is the fact that $\mathbf{A}$
+		has a unique solution for all $\mathbf{b}$. Likewise if $\mathbf{b = 0}$, then $\mathbf{x}$ is necessarily the 0
 		vector.
 
-		This question was done assuming that $\mathbf{A}=n\times n \rightarrow \mathbf{b}=1\times n$. If $\mathbf{b}$ is of size $m<n$, then $\mathbf{Ax=b}$ has
-		an infinity of solutions. However, this does not depend on the contents of $\mathbf{b}$, but rather the initial parameters of the problem. \\
+		This question was done assuming that $\mathbf{A}=n\times n \rightarrow \mathbf{b}=1\times n$. If $\mathbf{b}$ is of size $m\neq n$, then $\mathbf{Ax=b}$ has
+		either zero or infinitely many solutions. However, this does not depend on the contents of $\mathbf{b}$, but rather the initial parameters of the problem. \\
 
 		\item \textbf{False}.
 
@@ -55,13 +55,13 @@
 
 		\item \textbf{False}.
 
-		When working with a linear system, the solution to the system is the point at which every line defined by matrix $\mathbf{A}$ intersects. If there is no
-		point where every line intersects, then there are no solutions. Because the system is
-		linear, two lines can have only one discreet intersection. Therefore, it is not possible for 2 (or more) lines to intersect at more than one point, so there
-		must be either exactly 1 solution, or infinitely many solutions. \\
+		If all lines are parallel, there are zero intersections, and therefore zero solutions. If all lines are the same, there are
+		infinitely many intersections, and therefore infinitely many solutions. If all lines intersect at exactly one point, there is
+		exactly one solution. There are no other possibilities, as two linear equations cannot intersect at 2 points unless they
+		intersect at infinitely many points.\\
 
 		\item One of the reasons pivoting is essential in the G.E. method of solving matrices is to avoid potential zeroes on the principle
-		diagonal. When the G.E. is being done, each element on the principle diagonal determines the multiplier for the rows below. $m_{ij}
+		diagonal. When the G.E. is being done, each element on the principle diagonal determines the multiplier for the rows below, $m_{ij}
 		= \frac{a_{ij}}{a_{jj}}$. Since the diagonal element is in the denominator, it must be nonzero. This is a mathematical reason for
 		pivoting.
 
@@ -74,10 +74,10 @@
 		\item The condition number is a nontrivial computation due to the computation of the norms that make up the number. In order
 		compute the 1-norm, which is common, the algorithm must sum every column, the largest of which becomes the condition number.
 		This alone requires $O(n^2)$ operations. The algorithm must then compute the inverse of $\mathbf{A}$, which is an even more
-		expensive operation. More curcially, the inverse of matrix $\mathbf{A}$ must be completely recomputed if $\mathbf{A}$ is even
-		slightly modified. \\
+		expensive operation. More curcially, $\mathbf{A^{-1}}$ must be completely recomputed if $\mathbf{A}$ is even slightly
+		modified. \\
 
-		\item On its own, the relative residual does not carry much weight. A small residual would, at firs glance, seem to imply low
+		\item On its own, the relative residual does not carry much weight. A small residual would, at first glance, seem to imply low
 		error, and therefore higher accuracy. However, this is not the case, and it turns out that the condition number of a matrix is
 		directly involved in the accuracy of the solution. In order for a solution to be accurate, the solution should not only have
 		a small relative residual, but should also be moderately well conditioned. \\
@@ -89,8 +89,8 @@
 
 				In this case, $\mathbf{A}$ would be an $n\times n$ diagonal matrix, with every diagonal entry = 1, and $c =
 				\frac{1}{2}$. The determinant of a diagonal matrix with every diagonal value = 1 is simply the identity matrix
-				, and $det(\mathbf{I})$ is 1. Therefore, the determinant of the matrix $\frac{1}{2}\mathbf{I} =
-				\frac{1}{2}^n$. \\
+				, and $det(\mathbf{I})$ is 1. Therefore, $det(\frac{1}{2}\mathbf{I}) =
+				(\frac{1}{2})^n$. \\
 
 				\item Assume the use of the 1-norm
 
@@ -105,7 +105,7 @@
 				the condition number of a matrix sets an upper bound on the maximum distortion of the result due to input
 				errors. Because each element in the system $(x_1, x_2, \dots, x_n)$ only appears once in $\mathbf{A}$,
 				each entry simply takes the corresponding $\mathbf{b}$ value $(a_1 = b_1, a_2 = b_2, \dots, a_n = b_n)$.
-				Any error that is present in the input will be directly translate to the output. \\
+				Any error that is present in the input will be directly translated to the output. \\
 
 			\end{enumerate}
 
@@ -217,12 +217,12 @@
 
 			$$K(\mathbf{A}) = 201*6.01 = 1208.01$$
 
-			The poor conditioning of the number is a clear indication that a small change to the data will cause a large change in
+			The poor conditioning of the matrix is a clear indication that a small change to the data will cause a large change in
 			the result. In this case, the altered data that gave rise to the vector $\mathbf{x^*}$ was $\mathbf{b^*}$. The large
 			condition number sets the upper bound on the relative output error, meaning that $\mathbf{x^*}$ can grow extremely
 			large, without producing extremely different results in $\mathbf{b^*}$.
 
-		\end{enumerate}
+	\end{enumerate}
 
 	\item
 
@@ -306,7 +306,7 @@
 
 				Again, start by swapping rows according to partial pivoting. This includes changing the positions of the
 				multipliers, although their values will not be affected by the row operations that follow. It also includes
-				swapping the corresonding rows in the permutation matrix. In this case, we swap rows $R2$ and $R3$
+				swapping the corresonding rows in the permutation matrix. In this case, we swap rows $R2$ and $R3$.
 
 				\[
 					\mathbf{A} =
@@ -328,8 +328,8 @@
 					\end{bmatrix}
 				\]
 
-				Next, calculate the new multipliers. In this step there are only two, as the only rows that need have items
-				zeroed out are $R3$ and $R4$
+				Next, calculate the new multipliers. In this step there are only two, as the only rows that have items to be
+				zeroed out are $R3$ and $R4$.
 
 				\begin{center}
 				\begin{tabular}{c||c}
@@ -339,7 +339,7 @@
 				\end{tabular} \\
 				\end{center}
 
-				Next, perform the row operations on $R3, R4$
+				Next, perform the row operations on $R3, R4$.
 
 				\begin{center}
 				\begin{tabular}{c||c}
@@ -411,7 +411,7 @@
 					\end{bmatrix}
 				\] \\
 
-				From here, we can extract both the lower and upper triangular matrices $\mathbf{L, U}$ respectively.
+				From here, we can extract both the lower and upper triangular matrices $\mathbf{L, U}$.
 
 				\[
 					\mathbf{L}=
@@ -559,7 +559,7 @@
 		\end{tabular} \\
 
 		\textbf{Step 3:} Multiply $R3$ of $\mathbf{L}$ with columns of $\mathbf{L^T}$. This result is the second row of $\mathbf{A}$.
-		Since The first equation $(l_{32}l_{11})$ and the second equation $(l_{31}l_{21} + l_{32}l_{22})$ do not have any unkowns, we
+		Since The first equation $(l_{32}l_{11})$, and the second equation $(l_{31}l_{21} + l_{32}l_{22})$ do not have any unkowns, we
 		can skip them, and are left with a single calculation for $l_{33}$.
 
 		\begin{tabular}{ll}
@@ -617,7 +617,7 @@
 		\item The results of \texttt{myA.m} for size $n =5:20$ are generated by a second script, \texttt{runmyA.m}.
 
 			To summarize,
-			the condition number of $\mathbf{A}\ (K(\mathbf{A}))$ grows increasingly large with $n$. This causes the relative
+			the condition number of $\mathbf{A}\ (\kappa(\mathbf{A}))$ grows increasingly large with $n$. This causes the relative
 			error to increase as well, causing the significance of the result to deteriorate, until there is no significance left
 			at $n=17$. \\
 
@@ -636,6 +636,89 @@
 			\lstinputlisting{myA.txt} \
 
 	\end{enumerate}
+
+	\item
+
+		\begin{enumerate}[(a)]
+			\item By definition, $\mathbf{AA^{-1}} = I$.
+
+				If $\mathbf{A}$ is an $n\times n$ matrix, then so are $\mathbf{A^{-1}}$ and $\mathbf{I}$. When the multiplication
+				$\mathbf{AA^{-1}}$ is carried out, there are exactly $n$ terms that result in a $1$, and they lie on the principle
+				diagonal.
+
+				The rest of the terms are necessarily zero. The expressions that produce the diagonal ones are
+				$a_{11}a^{-1}_{11} + a_{12}a^{-1}_{21} + \dots + a_{1n}a^{-1}_{n1}$ \\
+				$a_{21}a^{-1}_{12} + a_{22}a^{-1}_{22} + \dots  + a_{2n}a^{-1}_{n2}$ \\
+				$\vdots$ \\
+				$a_{n1}a^{-1}_{1n} + \dots + a_{nn}a^{-1}_{nn}$ \\
+
+				When taking the product of $\mathbf{A}$ and any of the columns of $\mathbf{A^{-1}}$, the result is
+				\[
+					\begin{bmatrix}
+						a_{11}a^{-1}_{1i} + a_{12}a^{-1}_{2i} + \dots + a_{1n}a^{-1}_{ni} \\
+						a_{21}a^{-1}_{1i} + a_{22}a^{-1}_{2i} + \dots + a_{2n}a^{-1}_{ni} \\
+						\vdots \\
+						a_{n1}a^{-1}_{1i} + a_{n2}a^{-1}_{2i} + \dots + a_{nn}a^{-1}_{ni} \\
+					\end{bmatrix}
+				\]
+
+				where $i=1:n$.
+
+				We know that the only sum that produces a 1 is of the form $a_{i1}a^{-1}_{1i} + a_{i2}a^{-1}{2i} + \dots a_{in}a^{
+				-1}{ni}$.
+				Clearly, there is only one of these terms int he product shown above, and the rest of the terms are necessarily zero.
+				Therefore, $\mathbf{Au_i = v_i}$. \\
+
+			\item
+				The calculations for $\mathbf{A^{-1}}$ were carried out in matlab by the script \texttt{itinverse.m}. This
+				script generates a random $5\times 5$ matrix, and finds the column vector $\mathbf{u_i}$ such that
+				$\mathbf{A^{-1}u_i = I_i}$, where $\mathbf{I_i}$ is the $i^{th}$ column vector of the identity matrix.
+
+				\begin{center}
+					\texttt{itinverse.m} script
+				\end{center}
+				\lstinputlisting{itinverse.m} \
+
+			\item The calculated values of $\mathbf{A^{-1}, I}$ are displayed below.
+
+				\begin{center}
+					Output of \texttt{itinverse.m}
+				\end{center}
+				\lstinputlisting{itinverse.txt} \
+
+		\end{enumerate}
+
+	\item The solutions to the Lorenz equations are calculated by two MATLAB files. The first, \texttt{lorenz.m}, defines the process
+		for computing the next iterate using the given functions and their partial derivatives. The second, \texttt{runlorenz.m},
+		contains a loop that supplies \texttt{lorenz.m} values according to Newton's method. When two successive iterates are close
+		enough togher, or if the system evaluated at the current result is close enough to zero, the script stops and displays
+		a solution to the system. Below are \texttt{lorenz.m}, \texttt{runlorenz.m}, and the output for the three solutions. The
+		particular solution reached depends on the inital guesses provided by the user.
+
+		\begin{center}
+			\texttt{lorenz.m} function
+		\end{center}
+		\lstinputlisting{lorenz.m} \
+
+		\begin{center}
+			\texttt{runlorenz.m} script
+		\end{center}
+		\lstinputlisting{runlorenz.m} \
+
+		\begin{center}
+			Solution set 1 produced by \texttt{runlorenz.m}
+		\end{center}
+		\lstinputlisting{lorenz.txt} \
+
+		\begin{center}
+			Solution set 2 produced by \texttt{runlorenz.m}
+		\end{center}
+		\lstinputlisting{lorenz2.txt} \
+
+		\begin{center}
+			Solution set 3 produced by \texttt{runlorenz.m}
+		\end{center}
+		\lstinputlisting{lorenz3.txt} \
 
 \end{enumerate}
 

@@ -1,0 +1,23 @@
+Computing zeros within tolerance of 1.000000e-10
+Initial guesses: x = 1   y = 1   z = 1
+
+n = 1
+New guesses:
+x = -5.44554e-02   y = -5.44554e-02   z = -4.15842e-01
+
+n = 2
+New guesses:
+x = -8.23834e-04   y = -8.23834e-04   z = -1.07838e-03
+
+n = 3
+New guesses:
+x = -3.28948e-08   y = -3.28948e-08   z = -2.54493e-07
+
+n = 4
+New guesses:
+x = -3.10056e-16   y = -3.10056e-16   z = -4.05775e-16
+
+Values of f1, f2, f3 are sufficiently close to zero. Zero has been found
+
+Solutions:
+x = -3.10056e-16   y = -3.10056e-16   z = -4.05775e-16

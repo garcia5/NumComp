@@ -1,0 +1,39 @@
+Computing zeros within tolerance of 1.000000e-10
+Initial guesses: x = 5   y = 5   z = 5
+
+n = 1
+New guesses:
+x = -2.21154e+01   y = -2.21154e+01   z = -9.23077e+01
+
+n = 2
+New guesses:
+x = -8.14002e+00   y = -8.14002e+00   z = -4.83940e+01
+
+n = 3
+New guesses:
+x = -7.45823e+00   y = -7.45823e+00   z = 2.06851e+01
+
+n = 4
+New guesses:
+x = -8.75180e+00   y = -8.75180e+00   z = 2.80953e+01
+
+n = 5
+New guesses:
+x = -8.49425e+00   y = -8.49425e+00   z = 2.70322e+01
+
+n = 6
+New guesses:
+x = -8.48529e+00   y = -8.48529e+00   z = 2.70000e+01
+
+n = 7
+New guesses:
+x = -8.48528e+00   y = -8.48528e+00   z = 2.70000e+01
+
+n = 8
+New guesses:
+x = -8.48528e+00   y = -8.48528e+00   z = 2.70000e+01
+
+Two successive iterates are within 1.000000e-10 in magnitude. Zero has been found
+
+Solutions:
+x = -8.48528e+00   y = -8.48528e+00   z = 2.70000e+01
