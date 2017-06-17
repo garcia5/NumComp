@@ -1,0 +1,4 @@
+S1 = -0.34178x^3 + 0.14151x^2 + 1.00000x + 0.00000
+S2 = 0.49355x^3 + -1.82668x^2 + 2.54582x + -0.40469
+Estimated value of f(pi/8): 0.39382
+Absolute error in evaluating S_1(pi/8): 0.01114

@@ -1,0 +1,2 @@
+Estimated value of f(pi/8): 0.40533
+Absolute error in evaluating y(pi/8): 0.02265

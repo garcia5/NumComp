@@ -1,0 +1,2 @@
+Estimated value of f(pi/8): 0.35355
+Absolute error in evaluating S_1(pi/8): 0.02913
