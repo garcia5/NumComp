@@ -618,6 +618,68 @@
 
 		\end{enumerate}
 
+	\item  In order to perform all the necessary calculations on the data, a MATLAB script \texttt{q6.m} was used. This script defines
+		the given data points, and uses the built-in routine \texttt{fit} to generate a function of the form
+		$$f(x) = c_1te^{c_2t}$$
+		This function is used to calculate the range of times in which the drug can operate correctly, i.e. when the concentration
+		is higher than 4 ng/ml. The results of the calculations are plotted in Figure 12. The graph shows the fitting function $f(x)$
+		in an extended range in order to show the effective period of the drug, as well as the initial data, and the point at which
+		$50\%$ of the drug is present in the bloodstream.
+
+		The script produces a short output, displaying the maximum concentration, as well as the time interval in which the drug
+		is effective.
+
+		\begin{center}
+			Maximum concentration = $14.18872$
+
+			Effective time range (hours) = $[0.63711, 19.28087]$
+		\end{center} \
+
+		\begin{center}
+			\texttt{q6.m} script
+		\end{center}
+		\lstinputlisting{q6.m} \
+
+		\begin{figure}[H]
+			\centering
+			\includegraphics[width=0.6\textwidth]{q6.png}
+			\caption{Graph of $f(x)$, given data, and $50\%$ concentration line}
+		\end{figure} \
+
+	\item The \texttt{profile.m} script is used in this problem to calculate a parametric cubic spline to form a cursive 'A'. The script
+		takes as input a set of points specified by the user, and performes 3 spline interpolations. The first two are fitting splines
+		to the values of $x$ and $y$ versus $i$, $i$ being the index of the coordinate point. There was one slight modification made
+		to the code, which was the use of an external program ``GeoGebra'' to more accurately select points. Every attempt made in
+		MATLAB to choose well-fitting points resulted in a spline barely resembling an 'A'. GeoGebra simply allows points to be
+		selected and modified, so a much cleaner looking result could be achieved by \texttt{profile.m}. \\
+
+		\begin{center}
+			\texttt{profile.m} script
+		\end{center}
+		\lstinputlisting{profile.m} \
+
+		\begin{center}
+			\texttt{profile.m} output
+		\end{center}
+		\lstinputlisting{profile.txt} \
+
+		\begin{figure}[H]
+			\centering
+			\includegraphics[width=0.5\textwidth]{profile_sx.png}
+			\caption{Graph of x-coordinate spline}
+		\end{figure} \
+
+		\begin{figure}[H]
+			\centering
+			\includegraphics[width=0.5\textwidth]{profile_sy.png}
+			\caption{Graph of y-coordinate spline}
+		\end{figure} \
+
+		\begin{figure}[H]
+			\centering
+			\includegraphics[width=0.5\textwidth]{profile_s.png}
+			\caption{Graph of full parametric spline}
+		\end{figure} \
 
 \end{enumerate}
 
