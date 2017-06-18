@@ -1,5 +1,5 @@
 # Fdb version 3
-["pdflatex"] 1497728353 "hw4.tex" "hw4.pdf" "hw4" 1497728353
+["pdflatex"] 1497744422 "hw4.tex" "hw4.pdf" "hw4" 1497744422
   "/etc/texmf/web2c/texmf.cnf" 1487906957 475 c0e671620eb5563b2130f56340a5fde8 ""
   "/usr/share/texlive/texmf-dist/fonts/map/fontname/texfonts.map" 1272929888 3287 e6b82fe08f5336d4d5ebc73fb1152e87 ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm" 1246382020 1004 54797486969f23fa377b128694d548df ""
@@ -31,6 +31,7 @@
   "/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb" 1248133631 36299 5f9df58c2139e7edcf37c8fca4bd384d ""
   "/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb" 1248133631 35469 70d41d2b9ea31d5d813066df7c99281c ""
   "/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb" 1248133631 35752 024fb6c41858982481f6968b5fc26508 ""
+  "/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb" 1248133631 32734 69e00a6b65cedb993666e42eedb3d48f ""
   "/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb" 1248133631 32726 0a1aea6fcd6468ee2cf64d891f5c43c8 ""
   "/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb" 1248133631 32569 5e5ddc8df908dea60932f3c484a54c0d ""
   "/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb" 1248133631 32626 4f5c1b83753b1dd3a97d1b399a005b4b ""
@@ -89,6 +90,11 @@
   "/var/lib/texmf/web2c/pdftex/pdflatex.fmt" 1487911627 3868954 34ef91b69884bcf1d337a66d3d15a9a0 ""
   "holmes5_1.m" 1497635300 272 3c6cf950ee624eb6bff32c96e6e0e7b5 ""
   "holmes5_1.png" 1497635309 11596 8d07025096aeba1421179cb25b9c560f ""
+  "holmes5_16a.m" 1497757786 745 e52c02d111825389da76379e65ae6232 ""
+  "holmes5_16a.png" 1497758060 20232 6ba7b0a885390a36b0960543d4db5d24 ""
+  "holmes5_16b.m" 1497758086 837 a767419b9b6c048acd437710b114a75b ""
+  "holmes5_16b_orig.png" 1497758082 14802 df88809b588b345fbd5175f75fc89e26 ""
+  "holmes5_16b_resize.png" 1497758098 17262 2b2ef7b013e2c60494172c39e1aa0dce ""
   "holmes5_1_cubic.m" 1497713054 724 1b73f70eefc417abcece81f3468fa484 ""
   "holmes5_1_cubic.png" 1497713059 12055 1c2cd74d334ae3872bbd8a0edbb8d124 ""
   "holmes5_1_lin.m" 1497709221 325 b84512f513a2637b7a4c42fbf5b5988d ""
@@ -103,9 +109,9 @@
   "holmes5_5d.png" 1497735996 14194 7414927d884570c07cf2cd2779a02a76 ""
   "holmes5_5e.m" 1497728315 1134 b945585a13dc7a96b71c1ba363f56ffa ""
   "holmes5_5e.png" 1497728321 14421 7691ea580c15d5421daeb66cbdb0c011 ""
-  "hw4.aux" 1497728353 1642 b51e442fcbde7e477834abf8c81b361c ""
-  "hw4.tex" 1497728352 12686 241efd2b1b14736df3e02dfa87e96f5a ""
+  "hw4.aux" 1497744422 2178 d0d6573b93a88cf9cd1e98bd28017ef9 ""
+  "hw4.tex" 1497744421 20478 37d6d761cd94cc58e2d33239fc8294a4 ""
   (generated)
+  "hw4.log"
   "hw4.aux"
   "hw4.pdf"
-  "hw4.log"

@@ -430,7 +430,194 @@
 
 		\end{enumerate}
 
+	\item Function to interpolate: $y(x) = log_{10}x$, where $x\in[0,10]$
+
+		\begin{enumerate}[(a)]
+
+			\item When using a piecewise linear interpolant $p_1(x)$ to approximate a function $f(x)$, the error for a given
+				segment from $x_i$ to $x_{i+1}$ is given as
+				$$|f(x)-p_1(x)| \leq \frac{1}{2} max|f''(x)|*max|w(x)|$$
+				where
+				$$w(x) = (x-x_i)(x-x_{i+1})$$
+				We can then define the distance between $x_i$ and $x_{i+1}$ as $h$. If we use this definition over the first
+				two points in the interpolation $x_1 = 0$, $x_2 = h$, then we can see that $w(x) = (x)(x-h)$, and $w(x)$ will
+				reach its maximum magnitude at $x=h/2$, a value of $\frac{h^2}{4}$. This result will hold for not only the
+				first interval, but all intervals used for interpolation. Therefore,
+
+				$$|f(x)-p_1(x)| \leq \frac{h^2}{8} max|f''(x)|$$
+
+				We are given the maximum error as $10^{-6}$ and $f(x)$. The only unknown then is a node spacing $h$ that will
+				satisfy the inequality.
+
+				$$10^{-6} = \frac{h^2}{8}max|-\frac{1}{x^2log(10)}|$$
+
+				The maximum of $f''(x)$ can be found by the zeros of $f'''(x)$
+
+				$$f'''(x) = \frac{2}{x^3log(10)}$$
+
+				This function has no zeros, so the maximum will occur at one of the ends of the interval $[1,10]$.
+
+				$$|f''(1)| = \frac{1}{log(10)} \approx 0.434294$$
+				$$|f''(10)| = \frac{1}{100log(10)} \approx 0.00434294$$
+
+				We now have
+				$$10^{-6} = \frac{h^2}{8}*\frac{1}{log(10)}$$
+				Solving for $h$, we get $h = \frac{1}{250} \sqrt{\frac{log(10)}{2}}$, which is the largest possible node
+				spacing to ensure an error of at most $10^{-6}$. The number of data points then needed to cover the interval
+				$[1,10]$ is $9/h = 2250\sqrt{\frac{2}{log(10}}$. Rounding this up, we get
+				$$n = 2097$$ \\
+
+			\item A process similar to that of piecewise linear error estimation can be used to estimate the error in a clamped
+				cubic spline interpolant. The maximum error of the cubic spline interpolant is given as
+				$$|f(x)-S(x)| \leq \frac{3h^4}{384} max|f^{(iv)}(x)|$$
+				Here,
+				$$|f^{(iv)}(x)| = \frac{6}{x^4log(10)}$$
+				which takes its maximum value at $x=1$
+				$$|f^{(iv)}(1)| = \frac{6}{log(10)}$$
+				We now have everything we need to solve for $h$.
+
+				$$10^{-6} = \frac{3h^4}{384} \frac{6}{log(10)}$$
+				$$h \approx 0.033275$$
+
+				The minimum number of nodes for the interval $[1,10]$ is then
+				$$\lceil 9/h \rceil = 271$$ \\
+
+			\item The error estimate for a polynomial interpolant given ideal node spacing is
+				$$|f(x)-p_n(x)| \leq \frac{1}{2^n(n+1)!} (\frac{b-a}{2})^{n+1}||f^{(n+1)}||_{\infty}$$
+				where
+				$$||f^{(n+1)}(x)||_{\infty} = max|f^{(n+1)}(x)|,\ x\in[a,b]$$
+				and $n$ is the number of data points. This error is not quite as easy to solve, as $n$ is involved in which
+				derivative of $f$ is being used, but this can be avoided by realizing the general expression for the
+				derivatives of $log_{10}(x)$.
+
+				$$||f^{(n+1)}(x)||_{\infty} = \frac{n!}{x^{n+1}log(10)}$$
+				where the maximum will always occur at $x=1$. We now look for values of $n$ such that
+				$$10^{-6} = \frac{||f^{(n+1)}(1)||_{\infty}}{2^n(n+1)!}$$
+				as this is the smallest possible $n$ that will ensure the error is below the tolerance.
+
+				With some help from the computer, we can now solve for $n$.
+				$$\lceil n \rceil = 15$$ \\
+
+		\end{enumerate}
+
+	\item Function to interpolate:
+		\[
+			g(x)=
+			\begin{cases}
+				2+3x^2+\alpha x^3 & -1 \leq x \leq 0 \\
+				2 + \beta x^2 - x^3 & 0 \leq x \leq 1 \\
+			\end{cases}
+		\]
+
+		\begin{enumerate}[(a)]
+
+			\item In order for $g(x)$ to be a cubic spline, it must be twice differentiable at $x=0$.
+			\[
+				g'(x)=
+				\begin{cases}
+					6x + 3\alpha x^2 & -1 \leq x \leq 0 \\
+					2\beta x - 3x^2 & 0 \leq x \leq 1 \\
+				\end{cases}
+			\]
+			\[
+				g''(x)=
+				\begin{cases}
+					6 + 6\alpha x & -1 \leq x \leq 0 \\
+					2\beta - 6x & 0 \leq x \leq 1 \\
+				\end{cases}
+			\]
+
+			\begin{tabular}{lll}
+				continuous $g(0)$ & $\to$ & $2 = 2$ \\
+				continuous $g'(0)$ & $\to$ & $0 = 0$ \\
+				continuous $g''(0)$ & $\to$ & $2\beta = 6$ \\
+			\end{tabular} \\
+
+			Based on these results, $\beta = 3$, but $\alpha$ is arbitrary. The two pieces of the function will always be
+			not only equal, but will have the same first and second derivatives at $x=0$ as long as $\beta = 3$. We simply choose
+			$\alpha = 1$ to keep things simple. The cubic spline through these points is therefore
+			\[
+				g(x)=
+				\begin{cases}
+					2+3x^2+x^3 & -1 \leq x \leq 0 \\
+					2 + 3x^2 - x^3 & 0 \leq x \leq 1 \\
+				\end{cases}
+			\] \\
+
+			\item The only data point that was concerning here was the point $x=0$. As there were only two cubic functions making
+				up the spline, there is only one point at which they must agree. In this case, that point is $(0,2)$. \\
+
+			\item In order for $g(x)$ to be a natural cubic spline, the second derivatives at each endpoint must be zero. In this
+				case, this means
+				$$g''(-1) = g''(1) = 0$$
+				In other words,
+				$$2 + 3(-1)^2 + \alpha (-1)^3 = 0$$
+				$$2 + \beta (1)^2 - (-1)^3 = 0$$
+				$g(x)$ must still be twice differentiable at $x=0$, so we have added two constraints to the conditions in part
+				(a).
+
+				\begin{tabular}{lll}
+					$g''(-1) = 0$ & $\to$ & $\alpha = 5$ \\
+					$g''(1) = 0$ & $\to$ & $\beta = -3$ \\
+					continuous $g(0)$ & $\to$ & $2=2$ \\
+					continuous $g'(0)$ & $\to$ & $0=0$ \\
+					continuous $g''(0)$ & $\to$ & $2\beta = 6$ \\
+				\end{tabular} \\
+
+				We have reached a contradiction, as the definition of a natural spline demands that $\beta = -3$, but the
+				conditions for a cubic spline demand that $\beta = 3$. Therefore, there are no values of $\alpha$ and $\beta$
+				that make $g(x)$ a natural cubic spline. \\
+
+			\item In order for $g(x)$ to be a clapmed cubic spline, $g'(-1) = f'(-1),\ g'(1) = f'(1)$. However, we are only given
+				the function $g(x)$, and not the function that is interpolating. Therefore, we do not know $f'(-1),\ f'(1)$,
+				and are left with the same results as part (a). $\beta = 3$, and $\alpha$ is arbitrary. \\
+
+		\end{enumerate}
+
 	\item
+		\begin{enumerate}[(a)]
+
+			\item A fairly straightforward MATLAB script was used to calculate the interpolating cubic spline. The script,
+				\texttt{holmes5\_16a.m}, stores all given data, and uses the built in \texttt{spline} routine to calculate
+				an interpolant that passes through all data points. Next, the \texttt{ppval} routine is used to generate
+				a continuous plot of the spline over the entire domain. Included below are both \texttt{holmes5\_16a.m} and
+				the graph of the airfoil generated by the script.
+
+				\begin{center}
+					\texttt{holmes5\_16a.m}
+				\end{center}
+				\lstinputlisting{holmes5_16a.m} \
+
+				\begin{figure}[H]
+					\centering
+					\includegraphics[width=0.6\textwidth]{holmes5_16a.png}
+					\caption{Graph of interpolating cubic splines and given discrete data}
+				\end{figure} \
+
+			\item Another MATLAB script was used to calculate the full-degree polynomial interpolation of the airfoil. However,
+				given the naturally wiggly nature of these interpolants, the resulting graph was completely unrecognizable.
+				The initial graph, Figure 10, is the automatically scaled graph of the polynomial from $[0,1]$. Figure 11
+				is a zoomed in version, such that the initial data points are still visible.
+
+				\begin{center}
+					\texttt{holmes5\_16b.m}
+				\end{center}
+				\lstinputlisting{holmes5_16b.m} \
+
+				\begin{figure}[H]
+					\centering
+					\includegraphics[width=0.6\textwidth]{holmes5_16b_orig.png}
+					\caption{Initial graph of interpolating polynomial}
+				\end{figure} \
+
+				\begin{figure}[H]
+					\centering
+					\includegraphics[width=0.6\textwidth]{holmes5_16b_resize.png}
+					\caption{Resized graph of interpolating polynomial}
+				\end{figure} \
+
+		\end{enumerate}
+
 
 \end{enumerate}
 
