@@ -156,9 +156,122 @@
 
 	\item $I_S(n) = \frac{2}{3}I_T(n) + \frac{1}{3}I_M(n/2)$
 
-	\item $I_S(n) = \frac{4}{3}I_T(n) - \frac{1}{3}I_T(n/2)$
+	The approximation of this integral must take place over an interval $[a,b]$, the size of which determines the node spacing $h$.
+	For $n$ nodes, $h=\frac{b-a}{n}$, and for $n/2$ nodes, $h = 2\frac{b-a}{n}$. Going forward, we use these values of $h$ for $I_T(n)$ and $I_M(n)$ respectively. \\
+
+	We know the definition of $I_M(n)$ as
+	\[
+	I_M(n) = h[f(a+h/2) + f(a+h) + f(a+3h/2) + f(a+2h) + \ldots + f(a+(n-1)h/2)]
+	\] \
+
+	Considering the fact that $h=2\frac{b-a}{n}$ when we take $I_M(n/2)$, we can rewrite this equation as
+	\[
+	I_M(n/2) = 2\frac{b-a}{n}[f(a+2\frac{b-a}{n}) + f(a+4\frac{b-a}{n}) + \ldots]
+	\]
+	and
+	\[
+	\frac{1}{3}I_M(n/2) = \frac{2(b-a)}{3n}[f(a+2\frac{b-a}{n}) + \ldots]
+	\] \
+
+	We also know the definition of $I_T(n)$
+	\[
+	I_T(n) = \frac{b-a}{2n}[f(a) + f(b) + 2f(a+\frac{b-a}{n}) + 2f(a+2\frac{b-a}{n}) + 2f(a+3\frac{b-a}{n})+\ldots]
+	\]
+	and
+	\[
+	\frac{2}{3}I_T(n) = \frac{b-a}{3n}[f(a) + f(b) + 2f(a+\frac{b-a}{n}) + 2f(a+2\frac{b-a}{n}) + \ldots]
+	\] \
+
+	These two sequences share terms that are of the form $f(a+2i\frac{b-a}{n})$, meaning the even terms are seen twice. In $I_T(n)$, there are also multiplied by a factor of 2, meaning that in total, each even term appears 4 times. The odd terms in $I_T(n)$, then, are only found in $I_T(n)$, but are still multiplied by 2, so each odd term appears 2 times. Each end point $f(a), f(b)$ only appears in $I_T(n)$, so each has a weight of 1. When the two sequences are combined, we get
+	\[
+	\frac{(b-a)}{3n}[f(a) + f(b) + 4f(x_{even}) + 2f(x_{odd})]
+	\]
+	where $f(x_{odd}) = f(a+odd\frac{b-a}{n})$ and $f(x_{even}) = a+even\frac{b-a}{n}$. This is the definition of composite Simpson's rule. \\
+
+	\item $I_S(n) = \frac{4}{3}I_T(n) - \frac{1}{3}I_M(n/2)$
+
+	A very similar idea is used to demonstrate this alternate definition of composite Simpson's rule.
+
+	\[
+	\frac{1}{3}I_M(n/2) = \frac{2(b-a)}{3n}[f(a+2\frac{b-a}{n}) + \ldots]
+	\]
+
+	and
+
+	\[
+	\frac{4}{3}I_T(n) = \frac{2(b-a)}{3n}[f(a) + f(b) + 2f(a+\frac{b-a}{n}) + 2f(a+2\frac{b-a}{n}) + \ldots]
+	\]
+
+	Again, once the difference is taken, the definition of composite Simpson's rule appears.
+
+	\[
+	\frac{4}{3}I_T(n) - \frac{1}{3}I_M(n/2) = \frac{b-a}{3n}[f(a) + f(b) + 4f(x_{even}) + 2f(x_{odd})]
+	\] \
 
 	\end{enumerate}
+
+	\item $Q_3(f) = \frac{4h}{3}[2f(h)-f(2h)+2f(3h)]\ \ 0\leq x \leq 4h$
+
+	\begin{enumerate}[(a)]
+
+	\item Given that this approximation uses 3 nodes, and therefore uses three function evaluations to approximate the integral, we can say that $Q_3(f)$ is of precision $3$. This means $Q_3(f)$ can approximate integrals exactly for polynomials up to and including degree 3. \\
+
+	\item We know that in general, the formula for the error in an odd degree Quadrature rule is
+	$$E_n =  Kh^{n+1}p^n(\eta)$$
+	where $h$ is the node spacing, $p^n$ is a polynomial of degree $n+1$, and $\eta$ is an unknown location on the interval. In order to find the value of $K$, we chose the function $f(x) = x^4$, where $f^{(iv)}(x) = 24$. It is known that $$\int x^4 = \frac{x^5}{5}$$ so $$\int_{0}^{4h}x^4 = \frac{(4h)^5}{5}$$
+
+	We also know the approximation, as it was given to be
+	\[
+	\frac{4h}{3}[2f(h)-f(2h)+2f(3h)]
+	\]
+
+	If we expand each side as a Taylor series, we get
+	\[
+	F(x) = \int f(x) = F(a) + hF'(a) + \frac{h^2}{2}F''(a) + \frac{h^3}{3!}F'''(a) + \ldots
+	\]
+	where $a$ is given as 0. We know that $F(0)$ is zero, since $F$ is a one term polynomial. $F$ can now be rewritten in terms of $f$, as the previously unknown term $F(a)$ is now gone.
+
+	\[
+	F(x) = (x-a)f(a) + \frac{(x-a)^2}{2!}f''(a) + \frac{(x-a)^3}{3!}f'''(a) + \frac{(x-a)^4}{4!}f^{(iv)}(a)
+	\]
+
+	What we are looking for is $F(4h)$. We use the Taylor expansion of $F$ to find this value. As we know that $x-a = 4h$, we can make this substitution as well.
+
+	\[
+	F(4h) = 4hf(a) + \frac{(4h)^2}{2!}f'(a) + \frac{(4h)^3}{3!}f''(a) + \frac{(4h)^4}{4!}f^{(iv)}(a)
+	\]
+
+	Remembering that $F(a)$ was being approximated by $\frac{4h}{3}[2f(h)-f(2h)+2f(3h)]$, we can expand each $f$ term in the approximation to achieve
+
+	\[
+	F^*(h) = \frac{4h}{3}[2f(a) +
+	\]
+	\[
+	[f(a) + 2hf'(a) + \frac{4h^2}{2!}f''(a) + \frac{8h^3}{3!}f'''(a)+\ldots] -
+	\]
+	\[
+	2[f(a) + 3hf'(a) + \frac{9h^2}{2!}f''(a) + \frac{27h^3}{3!}f'''(a) + \ldots]] + E
+	\]
+
+	If we simply compare the $f^{(iv)}(x)$ terms in each of the Taylor expansions, we see that the term for $F$ is
+	$\frac{32h^5}{5!}f^{(iv)}(a)$
+	, and the term for $F^*$ is $\frac{4h}{3}[\frac{(2h)^5}{5!} - \frac{(3h)^5}{5!}]f^{(iv)}(a) = -\frac{211h^5}{5!}f^{(iv)}(a)+\ldots+E$
+
+	When we take the difference between the actual and the approximate terms, we finally see E
+
+	\[
+	E = [\frac{32h^5}{5!}+\frac{211h^5}{5!}]f^{(iv)}(a) = \frac{241h^5}{5!}+\ldots
+	\]
+
+	or, if we want to truncate the sequence by using an unknown $a$,
+
+	\[
+	E = \frac{241h^5}{5!}f^{(iv)}(\eta)
+	\]
+
+	\end{enumerate}
+
+	\item
 
 \end{enumerate}
 
