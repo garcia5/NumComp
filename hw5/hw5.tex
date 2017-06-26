@@ -271,6 +271,46 @@
 
 	\end{enumerate}
 
+	\item Consider the value
+	\[
+	A = \int_{a}^{b}f(x)dx
+	\]
+
+	\begin{enumerate}[(a)]
+
+	\item We can let
+	\[
+	A^* = \int_{a}^{c}f(x)dx
+	\]
+	such that $A^*$ satisfies
+	\[
+	\frac{A^*}{A} = s
+	\]
+	where $0<s<1$. We must first calculate the value of $\int_{a}^{b}f(x)dx$ numerically to within a specified tolerance. In order to do this, we can use any procedure we'd like. In this case, we will use the built in MATLAB routine \texttt{integral(fun,a,b)} to calculate an ``exact'' value of the area under $f(x)$ when $a\leq x \leq b$. This gives us a final result for the denominator. We also know the ratio these integrals should reach is $s$. There is only one unknown left, in the form of $\int_{a}^{c}f(x)dx$. \\
+
+	One way to approach solving for $c$ is to use the same method to calculate $\int_{a}^{c}f(x)dx$ as was used to calculate $\int_{a}^{b}f(x)dx$. We must iterate through the domain $[a,b]$ in order to find a value of the integral that produces the correct ratio, at which point we are done. \\
+
+	We can start by setting $c=a$, and incrementing $c$ by a node spacing $h$, which can begin as defined by the optimal node spacing for a Simpson's rule approximation, $h = (\frac{90}{24*10^6})^(1/5)$, where $10^{-6}$ is the desired error. We then iterate through the the domain, looking for values of $c$ that satisfy the inequality $(s - error) \leq \frac{A^*}{A} \leq (s + error)$. In order to improve efficiency, when the ratio is exceeded, the iteration starts over at the most recent $c$ such that $\frac{A^*}{A} \leq s$, but with the step size cut in half. \\
+
+	\item Seen below is the implementation of the algorithm described in part (a).
+
+	\begin{center}
+	Definition of $f(x)$ by \texttt{fun.m}
+	\end{center}
+	\lstinputlisting{fun.m} \
+
+	\begin{center}
+	\texttt{int\_ratio.m} script to calculate c
+	\end{center}
+	\lstinputlisting{int_ratio.m} \
+
+	\begin{center}
+	Output of \texttt{int\_ratio.m} script
+	\end{center}
+	\lstinputlisting{int_ratio.txt} \
+
+	\end{enumerate}
+
 	\item
 
 \end{enumerate}
