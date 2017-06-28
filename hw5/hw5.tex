@@ -92,9 +92,7 @@
 		E \leq -\frac{b-a}{180}h^4max(f''(x))\ \ x\in[-1,1]
 		\]
 
-		We can easily see that the $max(f''(x)) = 16e^2$ for our interval, so the upper bound on the error is
-
-		We can then calculate the upper bound on the error.
+		We can easily see that $max(f''(x)) = 16e^2$ for our interval, so the upper bound on the error is
 
 		\[
 		E \leq -\frac{2}{180}(0.25^4)(16e^2)
@@ -250,7 +248,7 @@
 		\frac{4h}{3}[2f(h)-f(2h)+2f(3h)]
 		\]
 
-		If we expand each side as a Taylor series, we get
+		If we expand each the integral represented by $F(x)$ as a Taylor series, we get
 		\[
 		F(x) = \int f(x) = F(a) + hF'(a) + \frac{h^2}{2}F''(a) + \frac{h^3}{3!}F'''(a) + \ldots
 		\]
@@ -260,13 +258,13 @@
 		F(x) = (x-a)f(a) + \frac{(x-a)^2}{2!}f''(a) + \frac{(x-a)^3}{3!}f'''(a) + \frac{(x-a)^4}{4!}f^{(iv)}(a)
 		\]
 
-		What we are looking for is $F(4h)$. We use the Taylor expansion of $F$ to find this value. As we know that $x-a = 4h$, we can make this substitution as well.
+		What we are looking for is $F(4h)$. As we know that $x-a = 4h$, we can make this substitution as well.
 
 		\[
 		F(4h) = 4hf(a) + \frac{(4h)^2}{2!}f'(a) + \frac{(4h)^3}{3!}f''(a) + \frac{(4h)^4}{4!}f^{(iv)}(a)
 		\]
 
-		Remembering that $F(a)$ was being approximated by $\frac{4h}{3}[2f(h)-f(2h)+2f(3h)]$, we can expand each $f$ term in the approximation to achieve
+		Remembering that we are approximating $F(a)$ by $$F^*(a) \approx \frac{4h}{3}[2f(h)-f(2h)+2f(3h)]$$ we can expand each $f$ term in the approximation to achieve
 
 		\[
 		F^*(h) = \frac{4h}{3}[2f(a) +
@@ -279,8 +277,9 @@
 		\]
 
 		If we simply compare the $f^{(iv)}(x)$ terms in each of the Taylor expansions, we see that the term for $F$ is
-		$\frac{32h^5}{5!}f^{(iv)}(a)$
-		, and the term for $F^*$ is $\frac{4h}{3}[\frac{(2h)^5}{5!} - \frac{(3h)^5}{5!}]f^{(iv)}(a) = -\frac{211h^5}{5!}f^{(iv)}(a)+\ldots+E$
+		$$\frac{32h^5}{5!}f^{(iv)}(a)$$
+		and the term for $F^*$ is
+		$$\frac{4h}{3}[\frac{(2h)^5}{5!} - \frac{(3h)^5}{5!}]f^{(iv)}(a) = -\frac{211h^5}{5!}f^{(iv)}(a)+\ldots+E$$
 
 		When we take the difference between the actual and the approximate terms, we finally see E
 
@@ -606,7 +605,7 @@
 
 	\begin{enumerate}
 
-		\item When the simulation is done with $\beta = 2$, the two masses seem to be within ``critical'' ratios of one another. They both oscillate over time, never decaying in amplitude. When graphed against each other, they form an almost circular pattern, not converging to anything in particular.
+		\item When the simulation is done with $\beta = 2$, the two masses seem to be within ``critical'' ratios of one another. They both oscillate over time, never decaying in amplitude. When graphed against each other, they form an almost circular pattern, not converging to anything in particular. However, the shape they form seems to be centered loosely about $y_1 = 2$, $y_2 = 5$.
 
 		\begin{figure}[H]
 		\centering
@@ -622,7 +621,7 @@
 
 		\medskip
 
-		\item When the simulation is done with $\beta=4$, however, the two masses seem to converge, with $y_1 \to 2$ and $y_2 \to 5$. Clearly the $\beta$ factor in front of $y_2'(t)$ has a large impact on the convergence of solutions for this system.
+		\item When the simulation is done with $\beta=4$, however, the two masses exhibit decaying oscillations, with $y_1 \to 2$ and $y_2 \to 5$. A brief calculation shows that indeed, the equations $y_1 = 2$ and $y_2 = 5$ are equilibrium solutions to the system. Clearly the $\beta$ factor in front of $y_2'(t)$ has a large impact on the convergence of solutions for this system.
 
 		\begin{figure}[H]
 		\centering

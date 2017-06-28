@@ -1,5 +1,5 @@
 # Fdb version 3
-["pdflatex"] 1498607361 "hw5.tex" "hw5.pdf" "hw5" 1498607361
+["pdflatex"] 1498609641 "hw5.tex" "hw5.pdf" "hw5" 1498609642
   "/etc/texmf/web2c/texmf.cnf" 1487906957 475 c0e671620eb5563b2130f56340a5fde8 ""
   "/usr/share/texlive/texmf-dist/fonts/map/fontname/texfonts.map" 1272929888 3287 e6b82fe08f5336d4d5ebc73fb1152e87 ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm" 1246382020 1004 54797486969f23fa377b128694d548df ""
@@ -97,14 +97,14 @@
   "8b1.png" 1498620720 30699 52b4cde35f426ecc9c47e1afa795576b ""
   "8b3.png" 1498620744 38629 26decceec6da5c0e2d51949a3e1771c3 ""
   "fun.m" 1498530452 30 c8f5ed3ca294577488273f8d93603825 ""
-  "hw5.aux" 1498607361 292 adcafbc60ffb976feceebdca6bd22b29 ""
-  "hw5.tex" 1498607360 25038 a7fd99fbb671778ac67899d22d2a0f6d ""
+  "hw5.aux" 1498609641 292 adcafbc60ffb976feceebdca6bd22b29 ""
+  "hw5.tex" 1498609640 25189 6e184ee2d975991a6badcbe00e664765 ""
   "int_ratio.m" 1498586659 2293 c63669aaf691be016356659e3f877369 ""
   "int_ratio.txt" 1498517378 2039 8afd14e31886e6818fe575422f6d1612 ""
   "ode_sys.m" 1498606442 1221 bcbed1194ffcd82cf78e3963764c9857 ""
   (generated)
-  "/home/alexander/School/NumComp/hw5/hw5.log"
-  "hw5.aux"
-  "hw5.log"
   "hw5.pdf"
+  "hw5.log"
+  "hw5.aux"
+  "/home/alexander/School/NumComp/hw5/hw5.log"
   "/home/alexander/School/NumComp/hw5/hw5.pdf"
