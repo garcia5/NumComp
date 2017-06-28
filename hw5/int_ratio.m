@@ -1,8 +1,8 @@
 function c = int_ratio(a,b,fun,s,tol)
 % int_ratio.m
-%   script to calculate a value c such that the area under a given curve
-%       between x=a and x=c is s% of the area under the same curve from x=a to
-%       x=b. 
+%   script to calculate a value c such that the area under a given
+%   curve between x=a and x=c is s% of the area under the same curve
+%   from x=a to x=b.
 %   input:
 %       a,b = interval of integration
 %       @f = function to be integrated
@@ -39,13 +39,13 @@ for iter = 1:20
     for c = cc:step:b
         % evaluate integral
         N = integral(fun,a,c);
-        
+
         %if mod((100000*c),2) == 0
             fprintf('%.6f\t',c);
             fprintf('%.6f\t',N);
             fprintf('%.6f\n',N/A);
-        %end      
-        
+        %end
+
         % save values of c that get you close to the ratio
         if abs(N/A) < s
             cc = c;
@@ -58,14 +58,14 @@ for iter = 1:20
             accept = 1;
             return;
         end
-        
+
         % stop once you've definitely exceeded the ratio
         if abs(N/A) > s+tol
             break
         end
-        
+
     end
-    
+
     % acceptable c has been found
     if accept == 1
         return;
@@ -75,4 +75,4 @@ for iter = 1:20
         step = step / 2;
     end
     fprintf('\n');
-end 
+end
